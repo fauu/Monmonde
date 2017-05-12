@@ -90,8 +90,10 @@ export class ExplorationMode {
       const tileSize = 16;
       const scale = 2;
       const buffer = 3;
-      const horizontalTiles = Math.ceil((this.app.renderer.width / (tileSize * scale))) + buffer;
-      const verticalTiles = Math.ceil((this.app.renderer.height / (tileSize * scale))) + buffer;
+      let horizontalTiles = Math.ceil((this.app.renderer.width / (tileSize * scale))) + buffer;
+      let verticalTiles = Math.ceil((this.app.renderer.height / (tileSize * scale))) + buffer;
+      if (horizontalTiles % 2 == 0) horizontalTiles++;
+      if (verticalTiles % 2 == 0) verticalTiles++;
 
       this.displayTileMapLayer =
         new DisplayTileMapLayer(tileset, [horizontalTiles, verticalTiles], tileSize, 2);

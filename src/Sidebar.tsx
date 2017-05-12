@@ -2,6 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { inject, observer } from "mobx-react";
 import { GameStore } from "./GameStore";
+import { Icon } from "./Icon";
 
 interface ISidebarProps {
   gameStore?: GameStore;
@@ -39,13 +40,17 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
 }
 
 const WorldMapButton = (props: { onClick: any }) => (
-  <div className="ui-button" onClick={props.onClick}>
-    World Map
+  <div className="sidebar-button" onClick={props.onClick}>
+    <Icon name="earth" className="sidebar-button--icon" />
+    <span className="sidebar-button--text">World Map</span>
+    <Icon name="arrow-right" className="sidebar-button--arrow" />
   </div>
 );
 
 const BackToExplorationButton = (props: { onClick: any }) => (
-  <div className="ui-button" onClick={props.onClick}>
-    Back to exploration
+  <div className="sidebar-button" onClick={props.onClick}>
+    <Icon name="pine-tree" className="sidebar-button--icon" />
+    <span className="sidebar-button--text">Back to exploration</span>
+    <Icon name="arrow-right" className="sidebar-button--arrow" />
   </div>
 );
