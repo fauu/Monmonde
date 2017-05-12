@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+}
+
+body, html, #game-container, #game {
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+body {
+  font-size: 16px;
+}
+
+#game {
+  display: flex;
+  flex-direction: row;
+}
+
+#world-map {
+  height: 100%;
+  width: 80%;
+}
+
+#exploration-view {
+  height: 100%;
+  width: 80%;
+}
+
+$color-ui-bg: rgb(40, 40, 40);
+$color-ui-text: rgb(240, 240, 240);
+
+.sidebar {
+  z-index: 2137;
+  width: 20%;
+  background-color: $color-ui-bg;
+  color: $color-ui-text;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  padding: 0.8em 1em;
+}
+
+.ui-button {
+  display: block;
+  text-align: center;
+  padding: 1em; 
+  background: darken(yellow, 20%);
+  border-radius: 3px;
+  font-weight: bold;
+  transition-property: background;
+  transition-duration: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: darken(yellow, 10%);
+  }
+}
+
+.leaflet-container {
+  font: inherit !important;
+}
+
+.leaflet-marker-icon {
+  font-size: 90%;
+  font-weight: bold;
+  position: absolute;
+  padding: 0.5em; 
+  line-height: 1em;
+  background: rgba($color-ui-bg, 0.8) !important;
+  color: $color-ui-text;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  border: none !important;
+
+  &:hover {
+    background: $color-ui-bg !important;
+  }
+}
