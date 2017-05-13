@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { WorldMap } from "./world-map/WorldMap";
 
-export class WorldMapView extends React.Component<{}, {}> {
+export class TravelApp extends React.Component<{}, {}> {
 
   private worldMap: WorldMap;
 
@@ -17,7 +17,9 @@ export class WorldMapView extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <div id="world-map" ref="worldMapHost" />
+      <div className="app travel-app">
+        <div id="world-map" ref="worldMapHost" />
+      </div>
     );
   }
 

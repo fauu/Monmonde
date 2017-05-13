@@ -17,6 +17,8 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
   public componentWillMount() {
     if (this.props.gameStore) {
       this.gameStore = this.props.gameStore;
+    } else {
+      throw Error("Sidebar: Did not receive GameStore");
     }
   }
 
@@ -24,13 +26,13 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
     return (
       <div className="sidebar">
         {this.gameStore.state == "InExploration" && <WorldMapButton onClick={this.handleWorldMapButtonClick} />}
-        {this.gameStore.state == "InWorldMap" && <BackToExplorationButton onClick={this.handleBackToExplorationButtonClick} />}
+        {this.gameStore.state == "InMonGear" && <BackToExplorationButton onClick={this.handleBackToExplorationButtonClick} />}
       </div>
     )
   }
 
   private handleWorldMapButtonClick = () => {
-    this.gameStore.state = "InWorldMap";
+    this.gameStore.state = "InMonGear";
   };
 
   private handleBackToExplorationButtonClick = () => {
@@ -42,7 +44,7 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
 const WorldMapButton = (props: { onClick: any }) => (
   <div className="sidebar-button" onClick={props.onClick}>
     <Icon name="earth" className="sidebar-button--icon" />
-    <span className="sidebar-button--text">World Map</span>
+    <span className="sidebar-button--text">Travel</span>
     <Icon name="arrow-right" className="sidebar-button--arrow" />
   </div>
 );

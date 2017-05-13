@@ -1,9 +1,9 @@
 import { observable } from "mobx";
 
-type GameState = "InWorldMap" | "InExploration";
+type GameState = "InMonGear" | "InExploration";
 
 export class GameStore {
 
-  @observable public state: GameState = "InExploration";
+  @observable public state: GameState = "InMonGear";
 
 }

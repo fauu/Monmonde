@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { WorldMapView } from "./WorldMapView";
+import { MonGear } from "./MonGear";
 import { ExplorationView } from "./ExplorationView";
 import { Sidebar } from "./Sidebar";
 import { GameStore } from "./GameStore";
@@ -27,18 +27,18 @@ export class Game extends React.Component<{}, {}> {
       case "InExploration":
         view = <ExplorationView />;
         break;
-      case "InWorldMap":
-        view = <WorldMapView />;
+      case "InMonGear":
+        view = <MonGear />;
         break;
     }
 
     return (
-      <div id="game">
-        {view}
-        <Provider {...this.stores}>
-          <Sidebar />
-        </Provider>
-      </div>
+      <Provider {...this.stores}>
+        <div id="game">
+          {view}
+          {this.gameStore.state == "InExploration" ? <Sidebar /> : <span />}
+        </div>
+      </Provider>
     );
   }
 

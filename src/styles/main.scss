@@ -12,6 +12,7 @@ body, html, #game-container, #game {
 
 body {
   font-size: 16px;
+  background: rgb(0, 0, 0);
 }
 
 #game {
@@ -19,23 +20,29 @@ body {
   flex-direction: row;
 }
 
+.app {
+  width: 100%;
+  height: 100%;
+}
+
 #world-map {
   height: 100%;
-  width: 80%;
+  width: 100%;
 }
+
 
 #exploration-view {
   height: 100%;
   width: 80%;
 }
 
-@mixin acrylic-back($color) {
+@mixin acrylic-solid($color) {
   background-color: $color !important;
   background-image: url('../../assets/noise.png') !important;
 }
 
 @mixin acrylic-front($color) {
-  @include acrylic-back($color);
+  @include acrylic-solid($color);
   backdrop-filter: blur(10px);
 }
 
@@ -48,8 +55,10 @@ $color-primary: #304FFE;
 $color-bg: rgb(40, 40, 40);
 $color-text: rgb(240, 240, 240);
 
+$color-travel-primary: #304FFE;
+
 .sidebar {
-  @include acrylic-back($color-bg);
+  @include acrylic-solid($color-bg);
   z-index: 2137;
   width: 22%;
   height: 100%;
@@ -104,6 +113,76 @@ $color-text: rgb(240, 240, 240);
   @include transition;
 
   &:hover {
-    @include acrylic-front($color-primary);
+    @include acrylic-front($color-travel-primary);
+  }
+}
+
+.mongear {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1em 1em 1em 1em;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: rgb(240, 240, 240);
+  border: 2px solid rgb(150, 150, 150);
+
+  &__screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border: 2px solid rgb(100, 100, 100);
+    border-radius: 3px;
+  }
+
+  &__app-container {
+    &--app--travel {
+      .mongear__top-bar {
+        @include acrylic-solid($color-travel-primary);
+        background: $color-travel-primary; 
+        color: $color-text;
+      }
+    }
+  }
+
+  &__top-bar {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    width: 100%;
+    height: 6%;
+    z-index: 9001;
+    display: flex;
+    align-items: center;
+    font-size: 110%;
+    color: rgb(50, 50, 50);
+    justify-content: space-between;
+  }
+
+  &__top-bar-icon {
+    margin: 0 0.5em 0 0.8em;
+  }
+
+  &__top-bar-text {
+  }
+
+  &__exit-button {
+    padding: 0 0.8em;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      @include transition();
+      cursor: pointer;
+      background: rgba(30, 30, 30, 0.3);
+    }
+  }
+
+  &__app-container {
+    width: 100%;
+    height: 94%;
   }
 }

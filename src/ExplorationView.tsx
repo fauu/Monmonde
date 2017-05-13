@@ -28,7 +28,6 @@ export class ExplorationView extends React.Component<{}, {}> {
 
   public componentWillUnmount() {
     this.explorationMode.destroy();
-    console.log("will unmount");
   }
 
 }
