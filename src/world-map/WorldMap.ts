@@ -22,7 +22,7 @@ export class WorldMap {
 
     this.locationMarker([52.237049, 21.017532], "Warsaw").addTo(map);
 
-    setTimeout(() => map.setView([52.237049, 21.017532], 7), 300);
+    setTimeout(() => map.setView([52.237049, 21.017532], 7), 500);
   }
 
   private locationMarker(latlng: [number, number], name: string) {

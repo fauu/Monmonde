@@ -4,12 +4,16 @@ import { MonGear } from "./MonGear";
 import { ExplorationView } from "./ExplorationView";
 import { Sidebar } from "./Sidebar";
 import { GameStore } from "./GameStore";
+import { MonGearStore } from "./MonGearStore";
 import { observer, Provider } from "mobx-react";
+import Transition from "react-motion-ui-pack";
+import { spring } from "react-motion";
 
 @observer
 export class Game extends React.Component<{}, {}> {
 
   private gameStore: GameStore;
+  private monGearStore: MonGearStore;
   private stores = {};
 
   public constructor() {
@@ -18,25 +22,29 @@ export class Game extends React.Component<{}, {}> {
     const gameStore = new GameStore();
     this.gameStore = gameStore;
 
-    this.stores = { gameStore };
+    const monGearStore = new MonGearStore();
+    this.monGearStore = monGearStore;
+
+    this.stores = { gameStore, monGearStore };
   }
 
   public render() {
-    let view;
-    switch (this.gameStore.state) {
-      case "InExploration":
-        view = <ExplorationView />;
-        break;
-      case "InMonGear":
-        view = <MonGear />;
-        break;
-    }
-
     return (
       <Provider {...this.stores}>
         <div id="game">
-          {view}
-          {this.gameStore.state == "InExploration" ? <Sidebar /> : <span />}
+          <ExplorationView />
+          <Transition
+            component={false}
+            enter={{
+              translateY: spring(0, { stiffness: 400, damping: 80 })
+            }}
+            leave={{
+              translateY: 2000,
+            }}
+          >
+            {this.gameStore.monGearActive && <div className="mongear-animator" key="1"><MonGear /></div>}
+          </Transition>
+          <Sidebar />
         </div>
       </Provider>
     );

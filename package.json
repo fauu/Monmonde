@@ -15,11 +15,12 @@
     "@types/webpack-env": "^1.13.0",
     "classnames": "^2.2.5",
     "devtron": "^1.4.0",
-    "electron": "^1.6.7",
+    "electron": "1.6.7",
     "electron-compile": "^6.4.1",
     "electron-compilers": "^5.9.0",
     "electron-debug": "^1.1.0",
     "electron-localshortcut": "^1.1.1",
+    "electron-rebuild": "^1.5.11",
     "leaflet": "^1.0.3",
     "mbtiles-offline": "^2.8.0",
     "mdi": "^1.9.33",
@@ -29,6 +30,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-hot-loader": "next",
+    "react-motion-ui-pack": "^0.10.2",
     "resize-observer-polyfill": "^1.4.2"
   }
 }

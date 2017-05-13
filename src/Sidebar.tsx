@@ -25,20 +25,14 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
   public render() {
     return (
       <div className="sidebar">
-        {this.gameStore.state == "InExploration" && <WorldMapButton onClick={this.handleWorldMapButtonClick} />}
-        {this.gameStore.state == "InMonGear" && <BackToExplorationButton onClick={this.handleBackToExplorationButtonClick} />}
+        <WorldMapButton onClick={this.handleWorldMapButtonClick} />
       </div>
     )
   }
 
   private handleWorldMapButtonClick = () => {
-    this.gameStore.state = "InMonGear";
+    this.gameStore.monGearActive = true;
   };
-
-  private handleBackToExplorationButtonClick = () => {
-    this.gameStore.state = "InExploration";
-  };
-
 }
 
 const WorldMapButton = (props: { onClick: any }) => (
