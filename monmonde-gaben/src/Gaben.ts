@@ -1,14 +1,13 @@
 import * as PIXI from "pixi.js";
 import { DisplayTileMapLayer } from "./DisplayTileMapLayer";
-import { randomInt } from "../RandomUtils";
-
-import { MapGenerator } from "./MapGenerator";
-import { MapChunk } from "./MapChunk";
-import { ForestMapGenerator } from "./ForestMapGenerator";
+import { randomInt } from "monmonde-utils";
+import { ForestMapGenerator, MapChunk, MapChunkGenerator } from "monmonde-map-generator";
+import { TilemapChunkGenerator } from "./TilemapChunkGenerator";
+import { TilemapChunk } from "./TilemapChunk";
 
 declare var ResizeObserver: any;
 
-export class ExplorationMode {
+export class Gaben {
 
   private app: PIXI.Application;
   private displayTileMapLayer: DisplayTileMapLayer;
@@ -36,11 +35,14 @@ export class ExplorationMode {
     /***/
 
     const forestMapGenerator = new ForestMapGenerator((_) => 2);
-    const mapGenerator = new MapGenerator(forestMapGenerator, forestMapGenerator, 20);
-    const mapChunk = mapGenerator.generateChunk([0, 0]);
+    const mapGenerator = new MapChunkGenerator(forestMapGenerator);
+    const mapChunk = mapGenerator.generateChunk([0, 0], 20);
 
-    console.log(mapChunk.effectiveSurfaceLayer);
-    console.log(mapChunk.effectiveObjectLayer);
+    const tilemapGenerator = new TilemapChunkGenerator();
+    const tilemapChunk = tilemapGenerator.generateTilemapChunk(mapChunk);
+
+    console.log(tilemapChunk.surfaceLayer);
+    console.log(tilemapChunk.objectLayer);
 
     /***/
 

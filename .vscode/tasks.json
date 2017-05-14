@@ -1,17 +1,16 @@
 {
   "version": "0.1.0",
-  "command": "yarn",
   "isShellCommand": true,
   "showOutput": "always",
   "suppressTaskName": true,
   "tasks": [
     {
-      "taskName": "start",
-      "args": ["start"]
-    },
-    {
-      "taskName": "test",
-      "args": ["test"]
+      "taskName": "start-client",
+      "command": "yarn",
+      "args": ["start"],
+      "options": {
+        "cwd": "${workspaceRoot}/monmonde-client"
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
-import { _generateTilesetTilesDict, TilesetTilesDict, ITileDefinition } from "../TilesetTileDefinitions"
+import { _generateTileGfxDict, ITileGfxDefitinion } from "../TileGfxDefinitions";
 
 it("should generate tileset tile dictionary", () => {
-  const tilesetTileDefinitions: ITileDefinition[] = [
+  const tilesetTileDefinitions: ITileGfxDefitinion[] = [
     {
       name: "grass1",
       tilesetName: "tileset",
@@ -24,11 +24,10 @@ it("should generate tileset tile dictionary", () => {
     }
   ];
 
-  const tilesetTilesDict = _generateTilesetTilesDict(tilesetTileDefinitions);
+  const tilesetTilesDict = _generateTileGfxDict(tilesetTileDefinitions);
 
   expect(tilesetTilesDict).toEqual({
     1: [0, 1, 2],
     3: [3],
   });
-
 });

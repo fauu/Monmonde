@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node"
+  }
+}

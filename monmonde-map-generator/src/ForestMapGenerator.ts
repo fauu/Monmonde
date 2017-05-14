@@ -1,8 +1,7 @@
 import { surfaceTypes } from "./SurfaceTypes";
-import { randomElement } from "../RandomUtils";
+import { randomElement } from "monmonde-utils";
 import { tilesetTilesDict } from "./TilesetTileDefinitions";
-import { ITileGenerator } from "./ITileGenerator";
-import { IMapObjectGenerator } from "./IMapObjectGenerator";
+import { IMapGenerator } from "./IMapGenerator";
 import { MapLayer } from "./MapChunk";
 import * as PoissonDiskSampling from "poisson-disk-sampling";
 import { mapObjectSpritesDict, MapObjectSpritesDict } from "./MapObjectSpriteDefinitions";
@@ -12,7 +11,7 @@ export type BitMap = Array<Array<Bit>>;
 
 export type TreeObjectTypePicker = (position: [number, number]) => number;
 
-export class ForestMapGenerator implements ITileGenerator, IMapObjectGenerator {
+export class ForestMapGenerator implements IMapGenerator {
 
   // TODO: Derive from input (noise or any other)
   public static readonly treeSamplerParameters = {
@@ -27,15 +26,11 @@ export class ForestMapGenerator implements ITileGenerator, IMapObjectGenerator {
     this.treeObjectTypePicker = treeObjectTypePicker;
   }
 
-  public generateSurfaceTypeAt(position: [number, number]): number {
+  public getSurfaceTypeAt(position: [number, number]): number {
     return 1;
   }
 
-  public generateSurfaceTilemapTileAt(position: [number, number], surfaceTypeId: number): number {
-    return randomElement(tilesetTilesDict[surfaceTypeId]);
-  }
-
-  public generateLogicalObjectLayer(
+  public getObjectLayer(
       size: number, 
       startCoords: [number, number], 
       logicalSurfaceLayer: MapLayer): MapLayer {
@@ -55,16 +50,6 @@ export class ForestMapGenerator implements ITileGenerator, IMapObjectGenerator {
     }
 
     return logicalObjectLayer;
-  }
-
-  public generateMapObjectSpriteAt(
-      tilePosition: [number, number], 
-      mapObjectTypeId: number)
-      : number {
-    const mapObjectSpriteIdsForType = mapObjectSpritesDict[mapObjectTypeId];
-    const mapObjectSpriteId = (mapObjectSpriteIdsForType.length > 0) ? mapObjectSpriteIdsForType[0] : -1;
-
-    return mapObjectSpriteId;
   }
 
   private generateTreeBitMap(size: number, startCoords: [number, number], logicalSurfaceLayer: MapLayer): BitMap {

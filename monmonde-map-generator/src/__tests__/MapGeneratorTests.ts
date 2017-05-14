@@ -1,12 +1,12 @@
-import { MapGenerator } from "../MapGenerator";
+import { MapChunkGenerator } from "../MapChunkGenerator";
 import { MapChunk } from "../MapChunk";
-import { ITileGenerator } from "../ITileGenerator";
+import { IMapGenerator } from "../IMapGenerator";
 
-const MockTileGenerator = jest.fn<ITileGenerator>(() => ({
-  generateSurfaceTypeAt: jest.fn((position: [number, number]): number => {
+const MockMapGenerator = jest.fn<IMapGenerator>(() => ({
+  getSurfaceTypeAt: jest.fn((position: [number, number]): number => {
     return 1;
   }),
-  generateSurfaceTilemapTileAt: jest.fn((position: [number, number], surfaceTypeId: number): number => {
+  getObjectLayer: jest.fn((position: [number, number], surfaceTypeId: number): number => {
     return position[0] + position[1] + surfaceTypeId;
   }),
 }));
@@ -17,18 +17,18 @@ describe("MapGenerator", () => {
     const chunkSize = 4;
     const chunkNumTiles = chunkSize * chunkSize;
     const chunkPosition: [number, number] = [1, 1];
-    const mockTileGenerator = new MockTileGenerator();
+    const mockTileGenerator = new MockMapGenerator();
 
-    const instance = new MapGenerator(mockTileGenerator, chunkSize);
-    const chunk = instance.generateChunk(chunkPosition);
+    const instance = new MapChunkGenerator(mockTileGenerator);
+    const chunk = instance.generateChunk(chunkPosition, chunkSize);
 
-    expect(mockTileGenerator.generateSurfaceTypeAt)
+    expect(mockTileGenerator.getSurfaceTypeAt)
         .toHaveBeenCalledTimes(chunkNumTiles);
 
-    expect(mockTileGenerator.generateSurfaceTilemapTileAt)
+    expect(mockTileGenerator.getObjectLayer)
         .toHaveBeenCalledTimes(chunkNumTiles);
 
-    expect(chunk.logicalSurfaceLayer).toEqual([
+    expect(chunk.surfaceLayer).toEqual([
       [1, 1, 1, 1],
       [1, 1, 1, 1],
       [1, 1, 1, 1],
@@ -38,7 +38,7 @@ describe("MapGenerator", () => {
     const chunkStart: [number, number] =
         [chunkPosition[0] * chunkSize, chunkPosition[1] * chunkSize];
     const s = chunkStart[0] + chunkStart[1] + 1;
-    expect(chunk.effectiveSurfaceLayer).toEqual([
+    expect(chunk.objectLayer).toEqual([
       [s, s + 1, s + 2, s + 3],
       [s + 1, s + 2, s + 3, s + 4],
       [s + 2, s + 3, s + 4, s + 5],

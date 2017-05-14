@@ -1,0 +1,27 @@
+{
+  "name": "monmonde-gaben",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "scripts": {
+    "test": "./node_modules/jest/bin/jest.js"
+  },
+  "dependencies": {
+    "@types/jest": "^19.2.3",
+    "@types/pixi.js": "^4.4.4",
+    "jest": "^20.0.1",
+    "pixi.js": "^4.5.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
+    },
+    "testMatch": [
+      "**/__tests__/*.(ts|tsx)"
+    ]
+  }
+}
