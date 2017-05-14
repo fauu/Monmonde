@@ -41,7 +41,7 @@ body {
 
 #exploration-view {
   height: 100%;
-  width: 80%;
+  width: 1056px;
 }
 
 @mixin acrylic-solid($color) {
@@ -68,7 +68,7 @@ $color-travel-primary: #304FFE;
 .sidebar {
   @include acrylic-solid($color-bg);
   z-index: 2137;
-  width: 22%;
+  width: 310px;
   height: 100%;
   background-color: $color-bg;
   background-image: url('../../assets/noise.png');

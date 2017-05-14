@@ -58,7 +58,7 @@ export class MonGear extends React.Component<IMonGearProps, {}> {
             <Transition
               component={false}
               enter={{
-                opacity: spring(1, { stiffness: 400, damping: 80 })
+                opacity: spring(1, { stiffness: 400, damping: 80 }),
               }}
               leave={{
                 opacity: 0,

@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "command": "yarn",
+  "isShellCommand": true,
+  "showOutput": "always",
+  "suppressTaskName": true,
+  "tasks": [
+    {
+      "taskName": "start",
+      "args": ["start"]
+    }
+  ]
+}
