@@ -1,6 +1,6 @@
 import { _generateTilesetTilesDict, TilesetTilesDict, ITileDefinition } from "../TilesetTileDefinitions"
 
-it("should correctly generate tileset tile dictionary", () => {
+it("should generate tileset tile dictionary", () => {
   const tilesetTileDefinitions: ITileDefinition[] = [
     {
       name: "grass1",

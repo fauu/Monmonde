@@ -1,8 +1,8 @@
 interface ISurfaceTypes {
-  [name: string]: number;
+  [name: number]: string;
 }
 
 export const surfaceTypes: ISurfaceTypes = {
-  "grass": 1,
-  "dirt": 2,
+  1: "grass",
+  2: "dirt",
 }

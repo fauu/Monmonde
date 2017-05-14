@@ -1,24 +1,39 @@
-export type SurfaceTypeMap = Array<Array<number>>;
-export type TilesetTileMap = Array<Array<number>>;
+export type MapLayer = Array<Array<number>>;
 
 export class MapChunk {
 
   private size: number;
 
-  private _surfaceTypeMap: SurfaceTypeMap;
-  public get surfaceTypeMap(): SurfaceTypeMap {
-    return this._surfaceTypeMap;
+  private _logicalSurfaceLayer: MapLayer;
+  public get logicalSurfaceLayer(): MapLayer {
+    return this._logicalSurfaceLayer;
   }
-  public set surfaceTypeMap(value: SurfaceTypeMap) {
-    this._surfaceTypeMap = value;
+  public set logicalSurfaceLayer(value: MapLayer) {
+    this._logicalSurfaceLayer = value;
   }
 
-  private _groundMap: TilesetTileMap;
-  public get groundMap(): TilesetTileMap {
-    return this._groundMap;
+  private _effectiveSurfaceLayer: MapLayer;
+  public get effectiveSurfaceLayer(): MapLayer {
+    return this._effectiveSurfaceLayer;
   }
-  public set groundMap(value: TilesetTileMap) {
-    this._groundMap = value;
+  public set effectiveSurfaceLayer(value: MapLayer) {
+    this._effectiveSurfaceLayer = value;
+  }
+
+  private _logicalObjectLayer: MapLayer;
+  public get logicalObjectLayer(): MapLayer {
+    return this._logicalObjectLayer;
+  }
+  public set logicalObjectLayer(value: MapLayer) {
+    this._logicalObjectLayer = value;
+  }
+
+  private _effectiveObjectLayer: MapLayer;
+  public get effectiveObjectLayer(): MapLayer {
+    return this._effectiveObjectLayer;
+  }
+  public set effectiveObjectLayer(value: MapLayer) {
+    this._effectiveObjectLayer = value;
   }
 
   public constructor(size: number) {

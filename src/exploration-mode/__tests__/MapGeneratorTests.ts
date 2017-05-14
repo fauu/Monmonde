@@ -6,14 +6,14 @@ const MockTileGenerator = jest.fn<ITileGenerator>(() => ({
   generateSurfaceTypeAt: jest.fn((position: [number, number]): number => {
     return 1;
   }),
-  generateGroundTilemapTileAt: jest.fn((position: [number, number], surfaceTypeId: number): number => {
+  generateSurfaceTilemapTileAt: jest.fn((position: [number, number], surfaceTypeId: number): number => {
     return position[0] + position[1] + surfaceTypeId;
   }),
 }));
 
 describe("MapGenerator", () => {
 
-  it("should correctly generate map chunk", () => {
+  it("should generate map chunk", () => {
     const chunkSize = 4;
     const chunkNumTiles = chunkSize * chunkSize;
     const chunkPosition: [number, number] = [1, 1];
@@ -25,10 +25,10 @@ describe("MapGenerator", () => {
     expect(mockTileGenerator.generateSurfaceTypeAt)
         .toHaveBeenCalledTimes(chunkNumTiles);
 
-    expect(mockTileGenerator.generateGroundTilemapTileAt)
+    expect(mockTileGenerator.generateSurfaceTilemapTileAt)
         .toHaveBeenCalledTimes(chunkNumTiles);
 
-    expect(chunk.surfaceTypeMap).toEqual([
+    expect(chunk.logicalSurfaceLayer).toEqual([
       [1, 1, 1, 1],
       [1, 1, 1, 1],
       [1, 1, 1, 1],
@@ -38,7 +38,7 @@ describe("MapGenerator", () => {
     const chunkStart: [number, number] =
         [chunkPosition[0] * chunkSize, chunkPosition[1] * chunkSize];
     const s = chunkStart[0] + chunkStart[1] + 1;
-    expect(chunk.groundMap).toEqual([
+    expect(chunk.effectiveSurfaceLayer).toEqual([
       [s, s + 1, s + 2, s + 3],
       [s + 1, s + 2, s + 3, s + 4],
       [s + 2, s + 3, s + 4, s + 5],

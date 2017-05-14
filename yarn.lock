@@ -1990,13 +1990,9 @@ humanize-plus@^1.8.1:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/humanize-plus/-/humanize-plus-1.8.2.tgz#a65b34459ad6367adbb3707a82a3c9f916167030"
 
-iconv-lite@0.4.13:
+iconv-lite@0.4.13, iconv-lite@~0.4.13:
   version "0.4.13"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
-
-iconv-lite@~0.4.13:
-  version "0.4.17"
-  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.17.tgz#4fdaa3b38acbc2c031b045d0edcdfe1ecab18c8d"
 
 image-size@~0.5.0:
   version "0.5.3"
@@ -2037,6 +2033,10 @@ invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
 
+iota-array@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/iota-array/-/iota-array-1.0.0.tgz#81ef57fe5d05814cd58c2483632a99c30a0e8087"
+
 is-absolute-url@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-absolute-url/-/is-absolute-url-2.1.0.tgz#50530dfb84fcc9aa7dbe7852e83a37b93b9f2aa6"
@@ -2045,7 +2045,7 @@ is-arrayish@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/is-arrayish/-/is-arrayish-0.2.1.tgz#77c99840527aa8ecb1a8ba697b80645a7a926a9d"
 
-is-buffer@^1.1.5:
+is-buffer@^1.0.2, is-buffer@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.5.tgz#1f3b26ef613b214b88cbca23cc6c01d87961eecc"
 
@@ -2873,6 +2873,10 @@ mobx@^3.1.9:
   version "3.1.9"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.1.9.tgz#ed4af9d874ff6032c7af91fc1b87d9d33122a557"
 
+moore@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/moore/-/moore-0.0.2.tgz#c872e7cb3efd37aa2c538688602304e3ee74e8a7"
+
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -2892,6 +2896,13 @@ mz@^2.6.0:
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
+
+ndarray@^1.0.16:
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/ndarray/-/ndarray-1.0.18.tgz#b60d3a73224ec555d0faa79711e502448fd3f793"
+  dependencies:
+    iota-array "^1.0.0"
+    is-buffer "^1.0.2"
 
 nib@^1.1.2:
   version "1.1.2"
@@ -3209,6 +3220,13 @@ pixi.js@^4.5.1:
     object-assign "^4.0.1"
     pixi-gl-core "^1.0.3"
     resource-loader "^2.0.6"
+
+poisson-disk-sampling@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/poisson-disk-sampling/-/poisson-disk-sampling-1.0.1.tgz#0e65b595dfbf37f238f323b2157ba3d9235a175b"
+  dependencies:
+    moore "0.0.2"
+    zeros "^1.0.0"
 
 postcss-calc@^5.2.0:
   version "5.3.1"
@@ -4527,3 +4545,9 @@ yauzl@2.4.1:
   resolved "https://registry.yarnpkg.com/yauzl/-/yauzl-2.4.1.tgz#9528f442dab1b2284e58b4379bb194e22e0c4005"
   dependencies:
     fd-slicer "~1.0.1"
+
+zeros@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/zeros/-/zeros-1.0.0.tgz#64e2d83c0da8d322aa4cb882497b31b7dc33a540"
+  dependencies:
+    ndarray "^1.0.16"

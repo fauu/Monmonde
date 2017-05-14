@@ -8,6 +8,10 @@
     {
       "taskName": "start",
       "args": ["start"]
+    },
+    {
+      "taskName": "test",
+      "args": ["test"]
     }
   ]
 }

@@ -1,16 +1,20 @@
-import { MapChunk } from "./MapChunk";
-import { ISurfaceGenerator } from "./ISurfaceGenerator";
-import { SurfaceTypeMap, TilesetTileMap } from "./MapChunk";
+import { MapChunk, MapLayer } from "./MapChunk";
 import { tilesetTileDefinitions } from "./TilesetTileDefinitions";
 import { ITileGenerator } from "./ITileGenerator";
+import { IMapObjectGenerator } from "./IMapObjectGenerator";
 
 export class MapGenerator {
 
   private tileGenerator: ITileGenerator;
+  private mapObjectGenerator: IMapObjectGenerator;
   private chunkSize: number;
 
-  public constructor(tileGenerator: ITileGenerator, chunkSize: number) {
+  public constructor(
+      tileGenerator: ITileGenerator, 
+      mapObjectGenerator: IMapObjectGenerator,
+      chunkSize: number) {
     this.tileGenerator = tileGenerator;
+    this.mapObjectGenerator = mapObjectGenerator;
     this.chunkSize = chunkSize;
   }
 
@@ -20,43 +24,73 @@ export class MapGenerator {
     const chunkStart: [number, number] =
         [position[0] * this.chunkSize, position[1] * this.chunkSize];
 
-    const surfaceTypeMap = this.generateSurfaceTypeMap(chunkStart);
-    chunk.surfaceTypeMap = surfaceTypeMap;
+    const logicalSurfaceLayer = this.generateLogicalSurfaceLayer(chunkStart);
+    chunk.logicalSurfaceLayer = logicalSurfaceLayer;
 
-    const groundMap = this.generateGroundMap(chunkStart, surfaceTypeMap);
-    chunk.groundMap = groundMap;
+    const effectiveSurfaceLayer = this.generateEffectiveSurfaceLayer(chunkStart, logicalSurfaceLayer);
+    chunk.effectiveSurfaceLayer = effectiveSurfaceLayer;
+
+    const logicalObjectLayer = 
+        this.generateLogicalObjectLayer(this.chunkSize, chunkStart, logicalSurfaceLayer);
+    chunk.logicalObjectLayer = logicalObjectLayer;
+
+    const effectiveObjectLayer = this.generateEffectiveObjectLayer(chunkStart, logicalObjectLayer);
+    chunk.effectiveObjectLayer = effectiveObjectLayer;
 
     return chunk;
   }
 
-  private generateSurfaceTypeMap(startCoords: [number, number]): SurfaceTypeMap {
-    const surfaceTypeMap: SurfaceTypeMap = [];
+  private generateLogicalSurfaceLayer(startCoords: [number, number]): MapLayer {
+    const logicalSurfaceLayer: MapLayer = [];
     for (let x = 0; x < this.chunkSize; x++) {
-      surfaceTypeMap[x] = [];
+      logicalSurfaceLayer[x] = [];
       for (let y = 0; y < this.chunkSize; y++) {
         const tilePosition: [number, number] = [startCoords[0] + x, startCoords[1] + y];
 
-        surfaceTypeMap[x][y] = this.tileGenerator.generateSurfaceTypeAt(tilePosition);
+        logicalSurfaceLayer[x][y] = this.tileGenerator.generateSurfaceTypeAt(tilePosition);
       }
     }
 
-    return surfaceTypeMap;
+    return logicalSurfaceLayer;
   }
 
-  private generateGroundMap(startCoords: [number, number], surfaceTypeMap: SurfaceTypeMap)
-      : TilesetTileMap {
-    const groundMap: Array<Array<number>> = [];
+  private generateEffectiveSurfaceLayer(startCoords: [number, number], logicalSurfaceLayer: MapLayer)
+      : MapLayer {
+    const effectiveSurfaceLayer: MapLayer = [];
     for (let x = 0; x < this.chunkSize; x++) {
-      groundMap[x] = [];
+      effectiveSurfaceLayer[x] = [];
       for (let y = 0; y < this.chunkSize; y++) {
         const tilePosition: [number, number] = [startCoords[0] + x, startCoords[1] + y];
 
-        groundMap[x][y] = 
-            this.tileGenerator.generateGroundTilemapTileAt(tilePosition, surfaceTypeMap[x][y]);
+        effectiveSurfaceLayer[x][y] = 
+            this.tileGenerator.generateSurfaceTilemapTileAt(tilePosition, logicalSurfaceLayer[x][y]);
       }
     }
 
-    return groundMap;
+    return effectiveSurfaceLayer;
+  }
+
+  private generateLogicalObjectLayer(
+      size: number, 
+      startCoords: [number, number], 
+      logicalSurfaceLayer: MapLayer)
+      : MapLayer {
+    return this.mapObjectGenerator.generateLogicalObjectLayer(size, startCoords, logicalSurfaceLayer);
+  }
+
+  private generateEffectiveObjectLayer(startCoords: [number, number], logicalObjectLayer: MapLayer) {
+    const effectiveObjectLayer: MapLayer = [];
+    for (let x = 0; x < this.chunkSize; x++) {
+      effectiveObjectLayer[x] = [];
+      for (let y = 0; y < this.chunkSize; y++) {
+        const tilePosition: [number, number] = [startCoords[0] + x, startCoords[1] + y];
+
+        effectiveObjectLayer[x][y] = 
+            this.mapObjectGenerator.generateMapObjectSpriteAt(tilePosition, logicalObjectLayer[x][y]);
+      }
+    }
+
+    return effectiveObjectLayer;
   }
     
 }

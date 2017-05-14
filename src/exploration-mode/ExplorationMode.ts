@@ -2,6 +2,10 @@ import * as PIXI from "pixi.js";
 import { DisplayTileMapLayer } from "./DisplayTileMapLayer";
 import { randomInt } from "../RandomUtils";
 
+import { MapGenerator } from "./MapGenerator";
+import { MapChunk } from "./MapChunk";
+import { ForestMapGenerator } from "./ForestMapGenerator";
+
 declare var ResizeObserver: any;
 
 export class ExplorationMode {
@@ -28,6 +32,17 @@ export class ExplorationMode {
         this.app.renderer && this.app.renderer.resize(width, height);
       } 
     })
+    
+    /***/
+
+    const forestMapGenerator = new ForestMapGenerator((_) => 2);
+    const mapGenerator = new MapGenerator(forestMapGenerator, forestMapGenerator, 20);
+    const mapChunk = mapGenerator.generateChunk([0, 0]);
+
+    console.log(mapChunk.effectiveSurfaceLayer);
+    console.log(mapChunk.effectiveObjectLayer);
+
+    /***/
 
     this.playerPos = [50, 50];
     
