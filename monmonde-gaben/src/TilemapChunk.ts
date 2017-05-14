@@ -1,4 +1,4 @@
-export type TilemapLayer = Array<Array<number>>;
+export type TilemapLayer = number[][];
 
 export class TilemapChunk {
 

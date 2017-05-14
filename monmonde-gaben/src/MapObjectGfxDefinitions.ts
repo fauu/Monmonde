@@ -6,20 +6,18 @@ export interface IMapObjectGfxDefinition {
 // TODO: Load from a file
 export const mapObjectGfxDefinitions: IMapObjectGfxDefinition[] = [
   {
-    name: "pinetree1",
     mapObjectTypeId: 2,
-  }
-]
+    name: "pinetree1",
+  },
+];
 
-export type MapObjectGfxDict = { [mapObjectTypeId: number]: number[] };
+export interface IMapObjectGfxDict { [mapObjectTypeId: number]: number[]; }
 
-const generateMapObjectGfxDict = 
-    (mapObjectGfxDefinitions: IMapObjectGfxDefinition[])
-    : MapObjectGfxDict => {
-  const mapObjectGfxDict: MapObjectGfxDict = {}
+const generateMapObjectGfxDict = (defs: IMapObjectGfxDefinition[]) : IMapObjectGfxDict => {
+  const mapObjectGfxDict: IMapObjectGfxDict = {};
 
-  for (let i = 0; i < mapObjectGfxDefinitions.length; i++) {
-    const tileGfxDefinition = mapObjectGfxDefinitions[i];
+  for (let i = 0; i < defs.length; i++) {
+    const tileGfxDefinition = defs[i];
     const mapObjectTypeId = tileGfxDefinition.mapObjectTypeId;
 
     if (!mapObjectGfxDict[mapObjectTypeId]) {
@@ -29,9 +27,9 @@ const generateMapObjectGfxDict =
   }
 
   return mapObjectGfxDict;
-}
+};
 
-export const mapObjectGfxDict: MapObjectGfxDict =
+export const mapObjectGfxDict: IMapObjectGfxDict =
     generateMapObjectGfxDict(mapObjectGfxDefinitions);
 
 export const _generateMapObjectGfxDict = generateMapObjectGfxDict;

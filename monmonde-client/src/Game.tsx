@@ -1,13 +1,13 @@
+import { observer, Provider } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { MonGear } from "./MonGear";
-import { ExplorationView } from "./ExplorationView";
-import { Sidebar } from "./Sidebar";
-import { GameStore } from "./GameStore";
-import { MonGearStore } from "./MonGearStore";
-import { observer, Provider } from "mobx-react";
-import Transition from "react-motion-ui-pack";
 import { spring } from "react-motion";
+import Transition from "react-motion-ui-pack";
+import { ExplorationView } from "./ExplorationView";
+import { GameStore } from "./GameStore";
+import { MonGear } from "./MonGear";
+import { MonGearStore } from "./MonGearStore";
+import { Sidebar } from "./Sidebar";
 
 @observer
 export class Game extends React.Component<{}, {}> {
@@ -17,7 +17,7 @@ export class Game extends React.Component<{}, {}> {
   private stores = {};
 
   public constructor() {
-    super(); 
+    super();
 
     const gameStore = new GameStore();
     this.gameStore = gameStore;
@@ -35,12 +35,8 @@ export class Game extends React.Component<{}, {}> {
           <ExplorationView />
           <Transition
             component={false}
-            enter={{
-              translateY: spring(0, { stiffness: 400, damping: 80 })
-            }}
-            leave={{
-              translateY: 2000,
-            }}
+            enter={{ translateY: spring(0, { stiffness: 400, damping: 80 }) }}
+            leave={{ translateY: 2000 }}
           >
             {this.gameStore.monGearActive && <div className="mongear-animator" key="1"><MonGear /></div>}
           </Transition>

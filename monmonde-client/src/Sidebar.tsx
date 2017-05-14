@@ -1,6 +1,6 @@
+import { inject, observer } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { inject, observer } from "mobx-react";
 import { GameStore } from "./GameStore";
 import { Icon } from "./Icon";
 
@@ -27,14 +27,15 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
       <div className="sidebar">
         <WorldMapButton onClick={this.handleWorldMapButtonClick} />
       </div>
-    )
+    );
   }
 
   private handleWorldMapButtonClick = () => {
     this.gameStore.monGearActive = true;
-  };
+  }
 }
 
+// tslint:disable-next-line:variable-name
 const WorldMapButton = (props: { onClick: any }) => (
   <div className="sidebar-button" onClick={props.onClick}>
     <Icon name="earth" className="sidebar-button--icon" />
@@ -43,6 +44,7 @@ const WorldMapButton = (props: { onClick: any }) => (
   </div>
 );
 
+// tslint:disable-next-line:variable-name
 const BackToExplorationButton = (props: { onClick: any }) => (
   <div className="sidebar-button" onClick={props.onClick}>
     <Icon name="pine-tree" className="sidebar-button--icon" />

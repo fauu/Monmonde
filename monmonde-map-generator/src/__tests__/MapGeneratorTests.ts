@@ -1,14 +1,17 @@
-import { MapChunkGenerator } from "../MapChunkGenerator";
-import { MapChunk } from "../MapChunk";
 import { IMapGenerator } from "../IMapGenerator";
+import { MapChunk } from "../MapChunk";
+import { MapChunkGenerator } from "../MapChunkGenerator";
 
 const MockMapGenerator = jest.fn<IMapGenerator>(() => ({
-  getSurfaceTypeAt: jest.fn((position: [number, number]): number => {
-    return 1;
-  }),
+
   getObjectLayer: jest.fn((position: [number, number], surfaceTypeId: number): number => {
     return position[0] + position[1] + surfaceTypeId;
   }),
+
+  getSurfaceTypeAt: jest.fn((position: [number, number]): number => {
+    return 1;
+  }),
+
 }));
 
 describe("MapGenerator", () => {

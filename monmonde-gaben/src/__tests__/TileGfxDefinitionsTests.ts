@@ -4,24 +4,24 @@ it("should generate tileset tile dictionary", () => {
   const tilesetTileDefinitions: ITileGfxDefitinion[] = [
     {
       name: "grass1",
-      tilesetName: "tileset",
       surfaceTypeId: 1,
-    }, 
+      tilesetName: "tileset",
+    },
     {
       name: "grass2",
-      tilesetName: "tileset",
       surfaceTypeId: 1,
-    }, 
+      tilesetName: "tileset",
+    },
     {
       name: "grass3",
-      tilesetName: "tileset",
       surfaceTypeId: 1,
-    }, 
+      tilesetName: "tileset",
+    },
     {
       name: "dirt1",
+      surfaceTypeId: 3,
       tilesetName: "tileset2",
-      surfaceTypeId: 3
-    }
+    },
   ];
 
   const tilesetTilesDict = _generateTileGfxDict(tilesetTileDefinitions);

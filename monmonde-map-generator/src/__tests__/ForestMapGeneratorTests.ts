@@ -25,17 +25,17 @@ describe("ForestMapGenerator", () => {
 
 });
 
-const hasZerosAndAtLeastOneOne = (array: Array<Array<number>>): boolean => {
+const hasZerosAndAtLeastOneOne = (array: number[][]): boolean => {
   let foundOne = false;
-  for (let x = 0; x < array.length; x++) {
-    for (let y = 0; y < array.length; y++) {
-      if (array[x][y] == 1) {
+  for (const row of array) {
+    for (const cell of row) {
+      if (cell === 1) {
         foundOne = true;
-      } else if (array[x][y] != 0) {
+      } else if (cell !== 0) {
         return false;
       }
     }
   }
 
   return foundOne;
-}
+};

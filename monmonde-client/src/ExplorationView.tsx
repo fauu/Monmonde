@@ -1,13 +1,13 @@
+import { Gaben } from "monmonde-gaben";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Gaben } from "monmonde-gaben";
 
 export class ExplorationView extends React.Component<{}, {}> {
 
   public refs: {
-    gabenHost: HTMLElement; 
-  }
-  
+    gabenHost: HTMLElement;
+  };
+
   private gaben: Gaben;
 
   public constructor() {

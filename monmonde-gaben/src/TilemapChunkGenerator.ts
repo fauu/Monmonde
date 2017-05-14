@@ -1,8 +1,8 @@
 import { MapChunk, MapLayer } from "monmonde-map-generator";
-import { TilemapChunk, TilemapLayer } from "./TilemapChunk";
 import { randomElement } from "monmonde-utils";
-import { tileGfxDict } from "./TileGfxDefinitions";
 import { mapObjectGfxDict } from "./MapObjectGfxDefinitions";
+import { tileGfxDict } from "./TileGfxDefinitions";
+import { TilemapChunk, TilemapLayer } from "./TilemapChunk";
 
 export class TilemapChunkGenerator {
 
@@ -21,8 +21,7 @@ export class TilemapChunkGenerator {
     return tilemapChunk;
   }
 
-  private createSurfaceLayer(startCoords: [number, number], logicalSurfaceLayer: MapLayer)
-      : MapLayer {
+  private createSurfaceLayer(startCoords: [number, number], logicalSurfaceLayer: MapLayer): MapLayer {
     const surfaceLayer: TilemapLayer = [];
     for (let x = 0; x < logicalSurfaceLayer.length; x++) {
       surfaceLayer[x] = [];
@@ -59,10 +58,10 @@ export class TilemapChunkGenerator {
 
     const mapObjectSpriteId =
         (mapObjectSpriteIdsForType && mapObjectSpriteIdsForType.length > 0)
-        ? mapObjectSpriteIdsForType[0] 
+        ? mapObjectSpriteIdsForType[0]
         : -1;
 
     return mapObjectSpriteId;
   }
-  
+
 }

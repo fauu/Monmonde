@@ -1,9 +1,8 @@
+import { ForestMapGenerator, MapChunkGenerator } from "monmonde-map-generator";
+import { randomInt } from "monmonde-utils";
 import * as PIXI from "pixi.js";
 import { DisplayTileMapLayer } from "./DisplayTileMapLayer";
-import { randomInt } from "monmonde-utils";
-import { ForestMapGenerator, MapChunk, MapChunkGenerator } from "monmonde-map-generator";
 import { TilemapChunkGenerator } from "./TilemapChunkGenerator";
-import { TilemapChunk } from "./TilemapChunk";
 
 declare var ResizeObserver: any;
 
@@ -11,7 +10,7 @@ export class Gaben {
 
   private app: PIXI.Application;
   private displayTileMapLayer: DisplayTileMapLayer;
-  private map: Array<Array<number>>;
+  private map: number[][];
   private playerPos: [number, number];
   private objectContainer: PIXI.Container;
   private playerObject: PIXI.DisplayObject;
@@ -28,10 +27,12 @@ export class Gaben {
       for (const entry of entries) {
         const {width, height} = entry.contentRect;
 
-        this.app.renderer && this.app.renderer.resize(width, height);
-      } 
-    })
-    
+        if (this.app.renderer) {
+          this.app.renderer.resize(width, height);
+        }
+      }
+    });
+
     /***/
 
     const forestMapGenerator = new ForestMapGenerator((_) => 2);
@@ -47,21 +48,21 @@ export class Gaben {
     /***/
 
     this.playerPos = [50, 50];
-    
+
     PIXI.loader.add("tileset", "../assets/tileset.json")
                .add("tree", "../assets/tree.png")
                .add("player", "../assets/player.png");
 
     PIXI.loader.load((_, resources) => {
-      this.initMap(resources["tileset"]);
+      this.initMap(resources.tileset);
 
       this.objectContainer = new PIXI.Container();
-      
-      const playerSprite = this.initPlayer(resources["player"])
+
+      const playerSprite = this.initPlayer(resources.player);
       this.playerObject = playerSprite;
       this.objectContainer.addChild(playerSprite);
 
-      const treeSprite = new PIXI.Sprite(resources["tree"].texture);
+      const treeSprite = new PIXI.Sprite(resources.tree.texture);
       treeSprite.scale = new PIXI.Point(2, 2);
       treeSprite.anchor.set(0, 1);
       treeSprite.position.set(0, 32);
@@ -76,7 +77,7 @@ export class Gaben {
       e = e || window.event;
 
       let moveRequested: boolean = false;
-      
+
       let moveVector: [number, number] = [0, 0];
       switch (e.keyCode) {
         case 87:
@@ -104,11 +105,17 @@ export class Gaben {
       if (moveRequested) {
         this.displayTileMapLayer.update(this.map, this.playerPos);
         this.updateObjects(moveVector);
+        // tslint:disable-next-line:no-unused-expression
         this.objectContainer && this.objectContainer.children.sort((a: PIXI.DisplayObject, b: PIXI.DisplayObject) => {
             return a.position.y < b.position.y ? 1 : -1;
         });
       }
-    }
+    };
+  }
+
+  public destroy() {
+    this.app.destroy();
+    PIXI.loader.reset();
   }
 
   private updateObjects(moveVector: [number, number]) {
@@ -119,13 +126,8 @@ export class Gaben {
     this.playerObject.position.y += 32 * moveVector[1];
   }
 
-  public destroy() {
-    this.app.destroy();
-    PIXI.loader.reset();
-  }
-
   private initMap(tilesetResource) {
-    const map: Array<Array<number>> = [];
+    const map: number[][] = [];
     for (let x = 0; x < 1000; x++) {
       map[x] = [];
       for (let y = 0; y < 1000; y++) {
@@ -139,8 +141,12 @@ export class Gaben {
     const buffer = 3;
     let horizontalTiles = Math.ceil((this.app.renderer.width / (tileSize * scale))) + buffer;
     let verticalTiles = Math.ceil((this.app.renderer.height / (tileSize * scale))) + buffer;
-    if (horizontalTiles % 2 == 0) horizontalTiles++;
-    if (verticalTiles % 2 == 0) verticalTiles++;
+    if (horizontalTiles % 2 === 0) {
+      horizontalTiles++;
+    }
+    if (verticalTiles % 2 === 0) {
+      verticalTiles++;
+    }
 
     this.displayTileMapLayer =
       new DisplayTileMapLayer(tilesetResource.textures, [horizontalTiles, verticalTiles], tileSize, 2);
@@ -148,7 +154,7 @@ export class Gaben {
 
     this.app.stage.addChild(this.displayTileMapLayer.container);
   }
-  
+
   private initPlayer(playerResource): PIXI.DisplayObject {
     const playerSprite = new PIXI.Sprite(playerResource.texture);
     playerSprite.setTransform(16 * 32, 11 * 32, 2, 2);

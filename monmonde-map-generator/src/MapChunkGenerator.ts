@@ -1,5 +1,5 @@
-import { MapChunk, MapLayer } from "./MapChunk";
 import { IMapGenerator } from "./IMapGenerator";
+import { MapChunk, MapLayer } from "./MapChunk";
 
 export class MapChunkGenerator {
 
@@ -40,11 +40,10 @@ export class MapChunkGenerator {
   }
 
   private generateObjectLayer(
-      size: number, 
-      startCoords: [number, number], 
-      logicalSurfaceLayer: MapLayer)
-      : MapLayer {
+      size: number,
+      startCoords: [number, number],
+      logicalSurfaceLayer: MapLayer): MapLayer {
     return this.mapGenerator.getObjectLayer(size, startCoords, logicalSurfaceLayer);
   }
-    
+
 }

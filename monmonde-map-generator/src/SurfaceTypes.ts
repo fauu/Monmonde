@@ -5,4 +5,4 @@ interface ISurfaceTypes {
 export const surfaceTypes: ISurfaceTypes = {
   1: "grass",
   2: "dirt",
-}
+};

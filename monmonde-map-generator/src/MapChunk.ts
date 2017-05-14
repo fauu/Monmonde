@@ -1,4 +1,4 @@
-export type MapLayer = Array<Array<number>>;
+export type MapLayer = number[][];
 
 export class MapChunk {
 

@@ -1,6 +1,6 @@
-import * as path from "path";
-import * as MBTiles from "mbtiles-offline";
 import * as Leaflet from "leaflet";
+import * as MBTiles from "mbtiles-offline";
+import * as path from "path";
 import { WorldMapTileLayer } from "./WorldMapTileLayer";
 
 export class WorldMap {
@@ -11,7 +11,6 @@ export class WorldMap {
 
   public init(host: HTMLElement) {
     const mbtilesPath = path.resolve(__dirname, WorldMap.mbtilesPath);
-    console.log(mbtilesPath);
 
     this.mbtiles = new MBTiles(mbtilesPath);
 

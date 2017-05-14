@@ -4,11 +4,11 @@ import { WorldMap } from "./world-map/WorldMap";
 
 export class TravelApp extends React.Component<{}, {}> {
 
-  private worldMap: WorldMap;
-
   public refs: {
-    worldMapHost: HTMLElement; 
-  }
+    worldMapHost: HTMLElement;
+  };
+
+  private worldMap: WorldMap;
 
   public componentDidMount() {
     this.worldMap = new WorldMap();

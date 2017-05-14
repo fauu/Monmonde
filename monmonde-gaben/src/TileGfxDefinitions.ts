@@ -8,28 +8,28 @@ export interface ITileGfxDefitinion {
 export const tileDefinitions: ITileGfxDefitinion[] = [
   {
     name: "grass1",
-    tilesetName: "tileset",
     surfaceTypeId: 1,
-  }, 
+    tilesetName: "tileset",
+  },
   {
     name: "grass2",
-    tilesetName: "tileset",
     surfaceTypeId: 1,
-  }, 
+    tilesetName: "tileset",
+  },
   {
     name: "grass3",
-    tilesetName: "tileset",
     surfaceTypeId: 1,
-  }, 
-]
+    tilesetName: "tileset",
+  },
+];
 
-export type TileGfxDict = { [surfaceTypeId: number]: number[] };
+export interface ITileGfxDict { [surfaceTypeId: number]: number[]; }
 
-const generateTileGfxDict = (tileGfxDefinitions: ITileGfxDefitinion[]) => {
-  const tileGfxDict: TileGfxDict = {}
+const generateTileGfxDict = (defs: ITileGfxDefitinion[]) => {
+  const tileGfxDict: ITileGfxDict = {};
 
-  for (let i = 0; i < tileGfxDefinitions.length; i++) {
-    const tilesetTileGfxDefitinion = tileGfxDefinitions[i];
+  for (let i = 0; i < defs.length; i++) {
+    const tilesetTileGfxDefitinion = defs[i];
     const surfaceTypeId = tilesetTileGfxDefitinion.surfaceTypeId;
 
     if (!tileGfxDict[surfaceTypeId]) {
@@ -39,8 +39,8 @@ const generateTileGfxDict = (tileGfxDefinitions: ITileGfxDefitinion[]) => {
   }
 
   return tileGfxDict;
-}
+};
 
-export const tileGfxDict: TileGfxDict = generateTileGfxDict(tileDefinitions);
+export const tileGfxDict: ITileGfxDict = generateTileGfxDict(tileDefinitions);
 
 export const _generateTileGfxDict = generateTileGfxDict;
