@@ -1,6 +1,6 @@
 import { observable } from "mobx";
 
-export type MonGearApp = "travel" | undefined;
+export type MonGearApp = "travel" | "web-browser"| undefined;
 
 export class MonGearStore {
 

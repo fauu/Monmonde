@@ -1,3 +1,13 @@
+@mixin acrylic-solid($color) {
+  background-color: $color !important;
+  background-image: url('../../assets/noise.png') !important;
+}
+
+@mixin acrylic-front($color) {
+  @include acrylic-solid($color);
+  backdrop-filter: blur(10px);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,6 +41,31 @@ body {
 .app {
   width: 100%;
   height: 100%;
+
+  &--web-browser {
+    background: #DDDDDD;
+
+    .top-bar {
+      @include acrylic-solid(rgb(235, 235, 235));
+      height: 6%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .address-bar {
+      width: 600px;   
+      border: none;
+      text-align: center;
+      padding: 0.4em;
+      border-radius: 2px;
+    }
+
+    webview {
+      width: 100%;
+      height: 94%;
+    }
+  };
 }
 
 #world-map {
@@ -49,16 +84,6 @@ body {
   }
 }
 
-@mixin acrylic-solid($color) {
-  background-color: $color !important;
-  background-image: url('../../assets/noise.png') !important;
-}
-
-@mixin acrylic-front($color) {
-  @include acrylic-solid($color);
-  backdrop-filter: blur(10px);
-}
-
 @mixin transition() {
   transition-property: background;
   transition-duration: 0.2s;
@@ -69,6 +94,7 @@ $color-bg: rgb(40, 40, 40);
 $color-text: rgb(240, 240, 240);
 
 $color-travel-primary: #304FFE;
+$color-web-browser-primary: #304FFE;
 
 .sidebar {
   @include acrylic-solid($color-bg);
@@ -160,13 +186,11 @@ $color-travel-primary: #304FFE;
     > div {
       width: 100%;
       height: 100%;
-    }
 
-    &--app--travel {
-      .mongear__top-bar {
-        @include acrylic-solid($color-travel-primary);
-        background: $color-travel-primary; 
-        color: $color-text;
+      > div {
+        width: calc(100% - 2em);
+        height: calc(94.4% - 2em);
+        position: absolute;
       }
     }
   }
@@ -201,10 +225,17 @@ $color-travel-primary: #304FFE;
       cursor: pointer;
     }
 
-    &--app-travel {
+    &--travel {
       &--active {
         color: $color-travel-primary;
         border-bottom: 2px solid $color-travel-primary;
+      }
+    }
+
+    &--web-browser {
+      &--active {
+        color: $color-web-browser-primary;
+        border-bottom: 2px solid $color-web-browser-primary;
       }
     }
 

@@ -8,6 +8,7 @@ import { GameStore } from "./GameStore";
 import { Icon } from "./Icon";
 import { MonGearApp, MonGearStore } from "./MonGearStore";
 import { TravelApp } from "./TravelApp";
+import { WebBrowserApp } from "./WebBrowserApp";
 
 interface IMonGearProps {
   gameStore?: GameStore;
@@ -38,37 +39,40 @@ export class MonGear extends React.Component<IMonGearProps, {}> {
   public render() {
     const travelAppButtonClassName = classNames({
       "mongear__app-bar-button": true,
-      "mongear__app-bar-button--app-travel": true,
-      "mongear__app-bar-button--app-travel--active": this.monGearStore.activeApp == "travel",
+      "mongear__app-bar-button--travel": true,
+      "mongear__app-bar-button--travel--active": this.monGearStore.activeApp === "travel",
     });
-
-    let app;
-    switch (this.monGearStore.activeApp) {
-      case "travel":
-        app = <TravelApp key="1"/>;
-        break;
-      default:
-        app = null;
-    }
+    const webBrowserAppButtonClassName = classNames({
+      "mongear__app-bar-button": true,
+      "mongear__app-bar-button--web-browser": true,
+      "mongear__app-bar-button--web-browser--active": this.monGearStore.activeApp === "web-browser",
+    });
 
     return (
       <div className="mongear">
         <div className="mongear__screen">
           <div className="mongear__app-container mongear__app-container--app--travel">
             <Transition
-              component={false}
-              enter={{ opacity: spring(1, { stiffness: 400, damping: 80 }) }}
+              component="div"
+              enter={{ opacity: 1 }}
               leave={{ opacity: 0 }}
             >
-              {this.monGearStore.activeApp == "travel" && <div className="mongear__app-animator" key="1"><TravelApp /></div>}
+              {this.monGearStore.activeApp === "travel" && <div className="mongear__app-animator" key="1"><TravelApp /></div>}
+              {this.monGearStore.activeApp === "web-browser" && <div className="mongear__app-animator" key="2"><WebBrowserApp /></div>}
             </Transition>
           </div>
+
           <div className="mongear__app-bar">
             <div className="mongear__app-bar-buttons">
               <div
                 className={travelAppButtonClassName}
                 onClick={() => this.handleAppButtonClick("travel")}>
                 <Icon name="earth" />
+              </div>
+              <div
+                className={webBrowserAppButtonClassName}
+                onClick={() => this.handleAppButtonClick("web-browser")}>
+                <Icon name="web" />
               </div>
             </div>
             <div className="mongear__app-bar-button mongear__app-bar-button--exit-mongear" onClick={this.handleExitButtonClick}>
