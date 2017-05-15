@@ -1,4 +1,12 @@
+import { mapObjectGfxDefinitions } from "./MapObjectGfxDefinitions";
+import { tileGfxDefinitions } from "./TileGfxDefinitions";
+
 export type TilemapLayer = number[][];
+
+export interface ITilemapChunkDependencies {
+  tilesets: string[];
+  sprites: string[];
+}
 
 export class TilemapChunk {
 
@@ -36,6 +44,37 @@ export class TilemapChunk {
 
   public constructor(size: number) {
     this.size = size;
+  }
+
+  public get dependencies(): ITilemapChunkDependencies {
+    const dependencies: ITilemapChunkDependencies = {
+      sprites: [],
+      tilesets: [],
+    };
+
+    for (const row of this.surfaceLayer) {
+      for (const tileGfxIdx of row) {
+        const tilesetName = tileGfxDefinitions[tileGfxIdx].tilesetName;
+        if (dependencies.tilesets.indexOf(tilesetName) === -1) {
+          dependencies.tilesets.push(tilesetName);
+        }
+      }
+    }
+
+    for (const row of this.objectLayer) {
+      for (const objectGfxIdx of row) {
+        if (objectGfxIdx === -1) {
+          continue;
+        }
+
+        const spriteName = mapObjectGfxDefinitions[objectGfxIdx].name;
+        if (dependencies.sprites.indexOf(spriteName) === -1) {
+          dependencies.sprites.push(spriteName);
+        }
+      }
+    }
+
+    return dependencies;
   }
 
 }

@@ -5,7 +5,7 @@ export interface ITileGfxDefitinion {
 }
 
 // TODO: Load from a file
-export const tileDefinitions: ITileGfxDefitinion[] = [
+export const tileGfxDefinitions: ITileGfxDefitinion[] = [
   {
     name: "grass1",
     surfaceTypeId: 1,
@@ -41,6 +41,6 @@ const generateTileGfxDict = (defs: ITileGfxDefitinion[]) => {
   return tileGfxDict;
 };
 
-export const tileGfxDict: ITileGfxDict = generateTileGfxDict(tileDefinitions);
+export const tileGfxDict: ITileGfxDict = generateTileGfxDict(tileGfxDefinitions);
 
 export const _generateTileGfxDict = generateTileGfxDict;

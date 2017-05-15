@@ -23,12 +23,12 @@ export class TilemapChunkGenerator {
 
   private createSurfaceLayer(startCoords: [number, number], logicalSurfaceLayer: MapLayer): MapLayer {
     const surfaceLayer: TilemapLayer = [];
-    for (let x = 0; x < logicalSurfaceLayer.length; x++) {
-      surfaceLayer[x] = [];
-      for (let y = 0; y < logicalSurfaceLayer.length; y++) {
+    for (let y = 0; y < logicalSurfaceLayer.length; y++) {
+      surfaceLayer[y] = [];
+      for (let x = 0; x < logicalSurfaceLayer.length; x++) {
         const tilePosition: [number, number] = [startCoords[0] + x, startCoords[1] + y];
 
-        surfaceLayer[x][y] = this.createSurfaceTileAt(tilePosition, logicalSurfaceLayer[x][y]);
+        surfaceLayer[y][x] = this.createSurfaceTileAt(tilePosition, logicalSurfaceLayer[y][x]);
       }
     }
 
@@ -37,12 +37,12 @@ export class TilemapChunkGenerator {
 
   private createObjectLayer(startCoords: [number, number], logicalObjectLayer: MapLayer) {
     const objectLayer: MapLayer = [];
-    for (let x = 0; x < logicalObjectLayer.length; x++) {
-      objectLayer[x] = [];
-      for (let y = 0; y < logicalObjectLayer.length; y++) {
+    for (let y = 0; y < logicalObjectLayer.length; y++) {
+      objectLayer[y] = [];
+      for (let x = 0; x < logicalObjectLayer.length; x++) {
         const tilePosition: [number, number] = [startCoords[0] + x, startCoords[1] + y];
 
-        objectLayer[x][y] = this.createMapObjectSpriteAt(tilePosition, logicalObjectLayer[x][y]);
+        objectLayer[y][x] = this.createMapObjectSpriteAt(tilePosition, logicalObjectLayer[y][x]);
       }
     }
 
@@ -53,7 +53,7 @@ export class TilemapChunkGenerator {
     return randomElement(tileGfxDict[surfaceTypeId]);
   }
 
-  private createMapObjectSpriteAt(tilePosition: [number, number], mapObjectTypeId: number) : number {
+  private createMapObjectSpriteAt(tilePosition: [number, number], mapObjectTypeId: number): number {
     const mapObjectSpriteIdsForType = mapObjectGfxDict[mapObjectTypeId];
 
     const mapObjectSpriteId =

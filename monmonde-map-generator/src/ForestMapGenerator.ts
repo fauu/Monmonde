@@ -11,9 +11,9 @@ export class ForestMapGenerator implements IMapGenerator {
 
   // TODO: Derive from input (noise or any other)
   public static readonly treeSamplerParameters = {
-    maxDistance: 20,
-    maxTries: 5,
-    minDistance: 10,
+    maxDistance: 7,
+    maxTries: 15,
+    minDistance: 3,
   };
 
   private treeObjectTypePicker: TreeObjectTypePicker;
@@ -33,14 +33,14 @@ export class ForestMapGenerator implements IMapGenerator {
     const treeBitMap = this.generateTreeBitMap(size, startCoords, logicalSurfaceLayer);
 
     const logicalObjectLayer: MapLayer = [];
-    for (let x = 0; x < size; x++) {
-      logicalObjectLayer[x] = [];
-      for (let y = 0; y < size; y++) {
+    for (let y = 0; y < size; y++) {
+      logicalObjectLayer[y] = [];
+      for (let x = 0; x < size; x++) {
         const position: [number, number] = [startCoords[0] + x, startCoords[1] + y];
-        if (treeBitMap[x][y] === 1) {
-          logicalObjectLayer[x][y] = this.treeObjectTypePicker(position);
+        if (treeBitMap[y][x] === 1) {
+          logicalObjectLayer[y][x] = this.treeObjectTypePicker(position);
         } else {
-          logicalObjectLayer[x][y] = -1;
+          logicalObjectLayer[y][x] = -1;
         }
       }
     }
@@ -50,10 +50,11 @@ export class ForestMapGenerator implements IMapGenerator {
 
   private generateTreeBitMap(size: number, startCoords: [number, number], logicalSurfaceLayer: MapLayer): BitMap {
     const pds = new PoissonDiskSampling(
-        [size, size],
-        ForestMapGenerator.treeSamplerParameters.minDistance,
-        ForestMapGenerator.treeSamplerParameters.maxDistance,
-        ForestMapGenerator.treeSamplerParameters.maxTries);
+      [size, size],
+      ForestMapGenerator.treeSamplerParameters.minDistance,
+      ForestMapGenerator.treeSamplerParameters.maxDistance,
+      ForestMapGenerator.treeSamplerParameters.maxTries,
+    );
     const points = pds.fill();
 
     // tslint:disable-next-line:prefer-for-of
@@ -63,9 +64,9 @@ export class ForestMapGenerator implements IMapGenerator {
     }
 
     const row = Array.apply(null, new Array(size)).map(() => 0);
-    const bitMap = Array.apply(null, new Array(size)).map(() => row);
+    const bitMap = Array.apply(null, new Array(size)).map(() => row.slice(0));
     for (const point of points) {
-      bitMap[point[0]][point[1]] = 1;
+      bitMap[point[1]][point[0]] = 1;
     }
 
     return bitMap;

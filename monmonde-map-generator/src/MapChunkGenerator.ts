@@ -27,12 +27,12 @@ export class MapChunkGenerator {
 
   private generateSurfaceLayer(size: number, startCoords: [number, number]): MapLayer {
     const surfaceLayer: MapLayer = [];
-    for (let x = 0; x < size; x++) {
-      surfaceLayer[x] = [];
-      for (let y = 0; y < size; y++) {
+    for (let y = 0; y < size; y++) {
+      surfaceLayer[y] = [];
+      for (let x = 0; x < size; x++) {
         const tilePosition: [number, number] = [startCoords[0] + x, startCoords[1] + y];
 
-        surfaceLayer[x][y] = this.mapGenerator.getSurfaceTypeAt(tilePosition);
+        surfaceLayer[y][x] = this.mapGenerator.getSurfaceTypeAt(tilePosition);
       }
     }
 
