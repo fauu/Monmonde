@@ -1,7 +1,6 @@
-/* tslint:disable */
-import { PIXIResources } from "./Types";
-import { TilemapLayer } from "./TilemapChunk";
 import { mapObjectGfxDefinitions } from "./MapObjectGfxDefinitions";
+import { TilemapLayer } from "./TilemapChunk";
+import { PIXIResources } from "./Types";
 
 export class ObjectDisplayLayer {
 
@@ -17,14 +16,14 @@ export class ObjectDisplayLayer {
   }
 
   public constructor(
-    resources: PIXIResources, 
+    resources: PIXIResources,
     realDisplaySize: [number, number],
-    displayTileSize: number, 
-    objectScaling: number
+    displayTileSize: number,
+    objectScaling: number,
   ) {
     this.resources = resources;
     this.realDisplaySize = realDisplaySize;
-    this._container = new PIXI.Container;
+    this._container = new PIXI.Container();
     this.displayTileSize = displayTileSize;
     this.objectScaling = objectScaling;
     this.displacement = [0, 0];
@@ -43,7 +42,7 @@ export class ObjectDisplayLayer {
           x * this.displayTileSize,
           y * this.displayTileSize,
           this.objectScaling,
-          this.objectScaling
+          this.objectScaling,
         );
         sprite.anchor.set(0, 1);
         const spriteName = mapObjectGfxDefinitions[objectGfxIdx].name;
@@ -55,7 +54,7 @@ export class ObjectDisplayLayer {
   }
 
   public setDisplayRect(displayRectStart: [number, number], realDisplayRectSize: [number, number]) {
-    const realDisplayRectStart = 
+    const realDisplayRectStart =
       [displayRectStart[0] * this.displayTileSize, displayRectStart[1] * this.displayTileSize];
 
     for (const displayObject of this._container.children) {

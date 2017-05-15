@@ -1,9 +1,8 @@
-/* tslint:disable */
-import { TilemapDisplayLayer } from "./TilemapDisplayLayer";
 import { ForestMapGenerator, MapChunkGenerator } from "monmonde-map-generator";
-import { TilemapChunkGenerator } from "./TilemapChunkGenerator";
 import { ObjectDisplayLayer } from "./ObjectDisplayLayer";
 import { TilemapChunk } from "./TilemapChunk";
+import { TilemapChunkGenerator } from "./TilemapChunkGenerator";
+import { TilemapDisplayLayer } from "./TilemapDisplayLayer";
 
 interface IResourceDescriptor {
   name: string;
@@ -16,7 +15,7 @@ export class Exploration {
   private static readonly tileSize = 16;
   private static readonly displayTileSize = Exploration.scaling * Exploration.tileSize;
   private static readonly displaySize: [number, number] = [1056, 768];
-  private static readonly displaySizeInTiles = 
+  private static readonly displaySizeInTiles =
       Exploration.displaySize.map((x) => x / Exploration.displayTileSize);
 
   private tilemapChunk: TilemapChunk;
@@ -27,8 +26,8 @@ export class Exploration {
   private displayRectStart: [number, number];
   private get displayRectEnd(): [number, number] {
     return [
-      this.displayRectStart[0] + Exploration.displaySizeInTiles[0], 
-      this.displayRectStart[1] + Exploration.displaySizeInTiles[1]
+      this.displayRectStart[0] + Exploration.displaySizeInTiles[0],
+      this.displayRectStart[1] + Exploration.displaySizeInTiles[1],
     ];
   }
 
@@ -40,7 +39,7 @@ export class Exploration {
   public constructor(loader: PIXI.loaders.Loader) {
     this.loader = loader;
     this._container = new PIXI.Container();
-  } 
+  }
 
   public init() {
     this.displayRectStart = [10, 10];
@@ -53,13 +52,13 @@ export class Exploration {
     this.tilemapChunk = tilemapGenerator.generateTilemapChunk(mapChunk);
 
     const resolvedTilemapDependencies: IResourceDescriptor[] = [];
-    this.tilemapChunk.dependencies.tilesets.forEach(tilesetName => {
+    this.tilemapChunk.dependencies.tilesets.forEach((tilesetName) => {
       resolvedTilemapDependencies.push({
         name: tilesetName,
         url: `../assets/${tilesetName}.json`,
       });
     });
-    this.tilemapChunk.dependencies.sprites.forEach(spriteName => {
+    this.tilemapChunk.dependencies.sprites.forEach((spriteName) => {
       resolvedTilemapDependencies.push({
         name: spriteName,
         url: `../assets/${spriteName}.png`,
@@ -68,10 +67,10 @@ export class Exploration {
 
     PIXI.loader.add(resolvedTilemapDependencies).load(() => {
       this.tilemapDisplayLayer = new TilemapDisplayLayer(
-        this.loader.resources, 
-        Exploration.displaySizeInTiles, 
-        Exploration.tileSize, 
-        Exploration.scaling
+        this.loader.resources,
+        Exploration.displaySizeInTiles,
+        Exploration.tileSize,
+        Exploration.scaling,
       );
       this.tilemapDisplayLayer.update(this.tilemapChunk.surfaceLayer, this.displayRectStart);
       this._container.addChild(this.tilemapDisplayLayer.container);
@@ -80,7 +79,7 @@ export class Exploration {
         this.loader.resources,
         Exploration.displaySize,
         Exploration.displayTileSize,
-        Exploration.scaling
+        Exploration.scaling,
       );
       this.objectDisplayLayer.setObjectLayer(this.tilemapChunk.objectLayer);
       this.objectDisplayLayer.setDisplayRect(this.displayRectStart, Exploration.displaySize);
@@ -99,7 +98,7 @@ export class Exploration {
           panVector = [0, 1];
           break;
         case 65:
-          panVector = [-1, 0]
+          panVector = [-1, 0];
           break;
         case 68:
           panVector = [1, 0];

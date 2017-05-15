@@ -1,4 +1,3 @@
-/* tslint:disable */
 import * as PIXI from "pixi.js";
 import { ITileGfxDefitinion, tileGfxDefinitions } from "./TileGfxDefinitions";
 import { TilemapLayer } from "./TilemapChunk";
@@ -30,7 +29,7 @@ export class TilemapDisplayLayer {
     this.tileSize = tileSize;
     this.tileScale = tileScale;
 
-    this.tiles = []
+    this.tiles = [];
     for (let y = 0; y < this.height; y++) {
       this.tiles[y] = [];
       for (let x = 0; x < this.width; x++) {
