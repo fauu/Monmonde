@@ -24,6 +24,7 @@
     "electron-rebuild": "^1.5.11",
     "jest": "^20.0.1",
     "leaflet": "^1.0.3",
+    "leaflet-edgebuffer": "^1.0.5",
     "mbtiles-offline": "^2.8.0",
     "mdi": "^1.9.33",
     "mobx": "^3.1.9",

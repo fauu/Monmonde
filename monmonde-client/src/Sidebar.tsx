@@ -25,30 +25,21 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
   public render() {
     return (
       <div className="sidebar">
-        <WorldMapButton onClick={this.handleWorldMapButtonClick} />
+        <OpenMonGearButton onClick={this.handleOpenMonGearButtonClick} />
       </div>
     );
   }
 
-  private handleWorldMapButtonClick = () => {
+  private handleOpenMonGearButtonClick = () => {
     this.gameStore.monGearActive = true;
   }
 }
 
 // tslint:disable-next-line:variable-name
-const WorldMapButton = (props: { onClick: any }) => (
-  <div className="sidebar-button" onClick={props.onClick}>
-    <Icon name="earth" className="sidebar-button--icon" />
-    <span className="sidebar-button--text">Travel</span>
-    <Icon name="arrow-right" className="sidebar-button--arrow" />
-  </div>
-);
-
-// tslint:disable-next-line:variable-name
-const BackToExplorationButton = (props: { onClick: any }) => (
-  <div className="sidebar-button" onClick={props.onClick}>
-    <Icon name="pine-tree" className="sidebar-button--icon" />
-    <span className="sidebar-button--text">Back to exploration</span>
-    <Icon name="arrow-right" className="sidebar-button--arrow" />
+const OpenMonGearButton = (props: { onClick: any }) => (
+  <div className="sidebar-button sidebar-button--open-mongear" onClick={props.onClick}>
+    <Icon name="tablet" className="sidebar-button__icon" />
+    <span className="sidebar-button__text">Show MonGear</span>
+    <Icon name="arrow-up" className="sidebar-button__arrow" />
   </div>
 );

@@ -2,7 +2,7 @@ import { Gaben } from "monmonde-gaben";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-export class ExplorationView extends React.Component<{}, {}> {
+export class GabenView extends React.Component<{}, {}> {
 
   public refs: {
     gabenHost: HTMLElement;
@@ -22,7 +22,7 @@ export class ExplorationView extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <div id="exploration-view" ref="gabenHost" />
+      <div id="gaben-view" ref="gabenHost" />
     );
   }
 

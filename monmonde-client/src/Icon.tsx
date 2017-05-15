@@ -3,13 +3,19 @@ import * as React from "react";
 
 interface IIconProps {
   name: string;
+  rotation?: number;
   className?: string;
 }
 
 export class Icon extends React.Component<IIconProps, any> {
 
   public render() {
-    const className = classNames("mdi", `mdi-${this.props.name}`, this.props.className);
+    const className = classNames({
+      mdi: true,
+      [`mdi-${this.props.name}`]: true,
+      [`mdi-rotate-${this.props.rotation}`]: this.props.rotation,
+      [`${this.props.className}`]: true,
+    });
 
     return <i className={className} />;
   }

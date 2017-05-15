@@ -72,7 +72,7 @@ export class MonGear extends React.Component<IMonGearProps, {}> {
               </div>
             </div>
             <div className="mongear__app-bar-button mongear__app-bar-button--exit-mongear" onClick={this.handleExitButtonClick}>
-              <Icon name="exit-to-app" />
+              <Icon name="arrow-down" />
             </div>
           </div>
         </div>

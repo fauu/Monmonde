@@ -2,6 +2,6 @@ import { observable } from "mobx";
 
 export class GameStore {
 
-  @observable public monGearActive: boolean = false;
+  @observable public monGearActive: boolean = true;
 
 }

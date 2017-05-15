@@ -3,9 +3,11 @@ import * as MBTiles from "mbtiles-offline";
 
 const zoomLevel = 7;
 const base64Prefix = "data:image/png;base64,";
+const bufferTiles = 1;
 
 // tslint:disable-next-line:variable-name
 export const WorldMapTileLayer = Leaflet.TileLayer.extend({
+  edgeBufferTiles: bufferTiles,
   mbtiles: undefined,
   options: {
     maxZoom: zoomLevel,
