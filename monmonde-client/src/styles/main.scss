@@ -8,6 +8,19 @@
   backdrop-filter: blur(10px);
 }
 
+@mixin transition() {
+  transition-property: background, border-color, color;
+  transition-duration: 0.2s;
+}
+
+$color-primary: #304FFE;
+$color-bg: rgb(40, 40, 40);
+$color-text: rgb(240, 240, 240);
+
+$color-travel-primary: #304FFE;
+$color-web-browser-primary: #304FFE;
+
+
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +31,7 @@ body, html, #game-container, #game {
   height: 100%;
   overflow: hidden;
   user-select: none;
+  cursor: default;
 }
 
 body {
@@ -29,6 +43,17 @@ body {
   display: flex;
   flex-direction: row;
 
+  > div:first-child {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    > div:first-child {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 .mongear-animator {
@@ -74,30 +99,97 @@ body {
 }
 
 
-#gaben-view {
+.view {
   height: 100%;
   width: 1056px;
+  position: absolute;
 
-  > canvas {
-    width: 100%;
-    height: 100%;
+  &--location {
+    background-size: cover;
+  }
+
+  &--gaben {
+    > canvas {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
-@mixin transition() {
-  transition-property: background;
-  transition-duration: 0.2s;
+.location-view-panel {
+  @include acrylic-front(rgba(50, 50, 50, 0.8));
+  margin: 0 2em 1em 2em;
+  border: 2px solid rgba(20, 20, 20, 0.3);
+  padding: 1em;
+  color: $color-text;
+  box-sizing: border-box;
+
+  &:first-child {
+    margin-top: 2em;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &--settlement {
+    height: calc((100% - 4em - 1em) * 0.7);
+
+    .location-view-panel__header {
+      align-items: center;
+      display: flex;
+
+      > img {
+        height: 0.9em;
+        width: 1.5em;
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+  &--exploration-zone {
+    height: calc((100% - 4em - 1em) * 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__header {
+    font-size: 170%;
+    font-weight: bold; 
+    margin-bottom: 0.5em;
+    margin-top: -0.15em;
+    position: relative;
+  }
+
+  &__enter-zone-button {
+    font-weight: 500;
+    padding: 1em 2em;
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(#EF6C00, 0.8);
+    color: #EF6C00;
+    cursor: pointer;
+    align-self: flex-end;
+    @include transition();
+
+    &:hover {
+      border-color: lighten(rgba(#EF6C00, 0.8), 20%);
+      color: lighten(rgba(#EF6C00, 0.8), 20%);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    &:active {
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(#EF6C00, 0.8);
+      color: #EF6C00;
+    }
+  }
 }
-
-$color-primary: #304FFE;
-$color-bg: rgb(40, 40, 40);
-$color-text: rgb(240, 240, 240);
-
-$color-travel-primary: #304FFE;
-$color-web-browser-primary: #304FFE;
 
 .sidebar {
   @include acrylic-solid($color-bg);
+  position: absolute;
+  right: 0;
   z-index: 2137;
   width: 310px;
   height: 100%;
@@ -106,7 +198,11 @@ $color-web-browser-primary: #304FFE;
   box-shadow: inset 7px 0 30px -7px rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  &__group {
+    
+  }
 }
 
 .sidebar-button {

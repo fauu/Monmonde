@@ -8,8 +8,8 @@ import { ISettlementData, Settlement } from "./Settlement";
 
 export class GeographyStore {
 
-  @observable.ref
-  public locations: Location[] | undefined = undefined;
+  @observable.ref public locations: Location[] | undefined = undefined;
+  public countries: Country[];
 
   private countryRepository: Repository<Country>;
   private locationRepository: Repository<Location>;

@@ -23,17 +23,36 @@ export class Sidebar extends React.Component<ISidebarProps, {}> {
   }
 
   public render() {
+    const exitExplorationZoneButton =
+      <ExitExplorationZoneButton onClick={this.handleExitExplorationZoneButtonClick} />;
+
     return (
       <div className="sidebar">
-        <OpenMonGearButton onClick={this.handleOpenMonGearButtonClick} />
+        <div className="sidebar__group sidebar__group--top">
+          {this.gameStore.activeView === "GabenView" && exitExplorationZoneButton}
+        </div>
+        <div className="sidebar__group sidebar__group--bottom">
+          <OpenMonGearButton onClick={this.handleOpenMonGearButtonClick} />
+        </div>
       </div>
     );
+  }
+  private handleExitExplorationZoneButtonClick = () => {
+    this.gameStore.activeView = "LocationView";
   }
 
   private handleOpenMonGearButtonClick = () => {
     this.gameStore.monGearActive = true;
   }
 }
+
+// tslint:disable-next-line:variable-name
+const ExitExplorationZoneButton = (props: { onClick: any }) => (
+  <div className="sidebar-button sidebar-button--exit-exploration-zone" onClick={props.onClick}>
+    <Icon name="exit-to-app" className="sidebar-button__icon" />
+    <span className="sidebar-button__text">Exit Zone</span>
+  </div>
+)
 
 // tslint:disable-next-line:variable-name
 const OpenMonGearButton = (props: { onClick: any }) => (

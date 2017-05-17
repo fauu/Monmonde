@@ -13,7 +13,7 @@ export class WorldMap {
   private map: Leaflet.Map;
   private mbtiles: MBTiles;
 
-  public init(host: HTMLElement) {
+  public init(host: HTMLElement, viewCenterCoords: [number, number]) {
     const mbtilesPath = path.resolve(__dirname, WorldMap.mbtilesPath);
 
     this.mbtiles = new MBTiles(mbtilesPath);
@@ -23,7 +23,7 @@ export class WorldMap {
     this.map = Leaflet.map(host, { zoomControl: false, attributionControl: false });
     mbtilesLayer.addTo(this.map);
 
-    setTimeout(() => this.map.setView([52.237049, 21.017532], 7), 2000);
+    setTimeout(() => this.map.setView(viewCenterCoords, 7), 2000);
   }
 
   public addLocationMarkers(locations: Location[]) {

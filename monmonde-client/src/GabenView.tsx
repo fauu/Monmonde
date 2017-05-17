@@ -22,7 +22,7 @@ export class GabenView extends React.Component<{}, {}> {
 
   public render() {
     return (
-      <div id="gaben-view" ref="gabenHost" />
+      <div className="view view--gaben" ref="gabenHost" />
     );
   }
 

@@ -5,9 +5,11 @@ import { spring } from "react-motion";
 import Transition from "react-motion-ui-pack";
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import { GabenView } from "./GabenView";
 import { MonGear } from "./MonGear";
 import { Sidebar } from "./Sidebar";
+
+import { GabenView } from "./GabenView";
+import { LocationView } from "./LocationView";
 
 import { GameStore } from "./GameStore";
 import { GeographyStore } from "./GeographyStore";
@@ -16,6 +18,7 @@ import { MonGearStore } from "./MonGearStore";
 import { Country } from "./Country";
 import { ExplorationZone } from "./ExplorationZone";
 import { Location } from "./Location";
+import { Player } from "./Player";
 import { Settlement } from "./Settlement";
 
 @observer
@@ -46,7 +49,15 @@ export class Game extends React.Component<{}, {}> {
     return (
       <Provider {...this.stores}>
         <div id="game">
-          <GabenView />
+          <Transition
+            component="div"
+            enter={{ opacity: spring(1) }}
+            leave={{ opacity: 0 }}
+          >
+            {this.gameStore.activeView === "GabenView" && <div key="1"><GabenView /></div>}
+            {this.gameStore.activeView === "LocationView" && <div key="2"><LocationView /></div>}
+          </Transition>
+
           <Transition
             component={false}
             enter={{ opacity: spring(1) }}
@@ -54,6 +65,7 @@ export class Game extends React.Component<{}, {}> {
           >
             {this.gameStore.monGearActive && <div className="screen-fade" key="1" />}
           </Transition>
+
           <Transition
             component={false}
             enter={{ translateY: spring(0, { stiffness: 400, damping: 80 }) }}
@@ -81,11 +93,21 @@ export class Game extends React.Component<{}, {}> {
         Settlement,
       ],
     }).then(async (connection) => {
-      this.geographyStore.init(
+      await this.geographyStore.init(
         connection.getRepository(Country),
         connection.getRepository(Location),
       );
-    }).catch((error) => { throw new Error(`Database error: ${error}`); });
+
+      this.initGameState();
+    }).catch((error) => {
+      throw new Error(`Database error: ${error}`);
+    });
+  }
+
+  private initGameState() {
+    const startingLocation = this.geographyStore.locations!.find((l) => l.settlement.name === "Warsaw")!;
+    this.gameStore.player = new Player({ location: startingLocation });
+    this.gameStore.activeView = "LocationView";
   }
 
 }
