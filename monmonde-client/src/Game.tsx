@@ -108,6 +108,7 @@ export class Game extends React.Component<{}, {}> {
     const startingLocation = this.geographyStore.locations!.find((l) => l.settlement.name === "Warsaw")!;
     this.gameStore.player = new Player({ location: startingLocation });
     this.gameStore.activeView = "LocationView";
+    this.gameStore.monGearActive = true;
   }
 
 }

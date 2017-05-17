@@ -30,13 +30,13 @@ export class MonGear extends React.Component<IMonGearProps, {}> {
   public render() {
     const travelAppButtonClassName = classNames({
       "mongear__app-bar-button": true,
+      "mongear__app-bar-button--active": this.monGearStore.activeApp === "travel",
       "mongear__app-bar-button--travel": true,
-      "mongear__app-bar-button--travel--active": this.monGearStore.activeApp === "travel",
     });
     const webBrowserAppButtonClassName = classNames({
       "mongear__app-bar-button": true,
+      "mongear__app-bar-button--active": this.monGearStore.activeApp === "web-browser",
       "mongear__app-bar-button--web-browser": true,
-      "mongear__app-bar-button--web-browser--active": this.monGearStore.activeApp === "web-browser",
     });
 
     return (

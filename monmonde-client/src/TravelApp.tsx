@@ -38,7 +38,7 @@ export class TravelApp extends React.Component<ITravelAppProps, {}> {
         this.worldMap.init(this.refs.worldMapHost, viewCenterCoords);
 
         const locations = this.geographyStore.locations!;
-        this.worldMap.addLocationMarkers(locations);
+        this.worldMap.addLocationMarkers(locations, playerLocation);
       },
     );
   }
