@@ -3,29 +3,43 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { spring } from "react-motion";
 import Transition from "react-motion-ui-pack";
+import "reflect-metadata";
+import { createConnection } from "typeorm";
 import { GabenView } from "./GabenView";
-import { GameStore } from "./GameStore";
 import { MonGear } from "./MonGear";
-import { MonGearStore } from "./MonGearStore";
 import { Sidebar } from "./Sidebar";
+
+import { GameStore } from "./GameStore";
+import { GeographyStore } from "./GeographyStore";
+import { MonGearStore } from "./MonGearStore";
+
+import { Country } from "./Country";
+import { ExplorationZone } from "./ExplorationZone";
+import { Location } from "./Location";
+import { Settlement } from "./Settlement";
 
 @observer
 export class Game extends React.Component<{}, {}> {
 
   private gameStore: GameStore;
+  private geographyStore: GeographyStore;
   private monGearStore: MonGearStore;
   private stores = {};
 
   public constructor() {
     super();
 
-    const gameStore = new GameStore();
-    this.gameStore = gameStore;
+    this.gameStore = new GameStore();
+    this.monGearStore = new MonGearStore();
+    this.geographyStore = new GeographyStore();
 
-    const monGearStore = new MonGearStore();
-    this.monGearStore = monGearStore;
+    this.stores = {
+      gameStore: this.gameStore,
+      geographyStore: this.geographyStore,
+      monGearStore: this.monGearStore,
+    };
 
-    this.stores = { gameStore, monGearStore };
+    this.initDevDb();
   }
 
   public render() {
@@ -51,6 +65,27 @@ export class Game extends React.Component<{}, {}> {
         </div>
       </Provider>
     );
+  }
+
+  private initDevDb() {
+    createConnection({
+      autoSchemaSync: true,
+      driver: {
+        storage: ":memory:",
+        type: "sqlite",
+      },
+      entities: [
+        Country,
+        ExplorationZone,
+        Location,
+        Settlement,
+      ],
+    }).then(async (connection) => {
+      this.geographyStore.init(
+        connection.getRepository(Country),
+        connection.getRepository(Location),
+      );
+    }).catch((error) => { throw new Error(`Database error: ${error}`); });
   }
 
 }

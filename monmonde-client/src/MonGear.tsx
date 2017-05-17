@@ -23,17 +23,8 @@ export class MonGear extends React.Component<IMonGearProps, {}> {
   private monGearStore: MonGearStore;
 
   public componentWillMount() {
-    if (this.props.gameStore) {
-      this.gameStore = this.props.gameStore;
-    } else {
-      throw Error("MonGear: Did not receive GameStore");
-    }
-
-    if (this.props.monGearStore) {
-      this.monGearStore = this.props.monGearStore;
-    } else {
-      throw Error("MonGear: Did not receive MonGearStore");
-    }
+    this.gameStore = this.props.gameStore!;
+    this.monGearStore = this.props.monGearStore!;
   }
 
   public render() {
