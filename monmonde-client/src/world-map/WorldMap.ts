@@ -1,3 +1,4 @@
+import * as classNames from "classnames";
 import * as Leaflet from "leaflet";
 import * as MBTiles from "mbtiles-offline";
 import * as path from "path";
@@ -32,11 +33,11 @@ export class WorldMap {
       const coords: [number, number] = [location.latitude, location.longitude];
       const name = `${location.settlement.name}`;
 
-      this.makeLocationMarker(coords, name, location === playerLocation).addTo(this.map);
+      this.makeLocationMarker(coords, location, location === playerLocation).addTo(this.map);
     }
   }
 
-  private makeLocationMarker(latlng: [number, number], name: string, isPlayerLocation: boolean) {
+  private makeLocationMarker(latlng: [number, number], location: Location, isPlayerLocation: boolean) {
     const markerIcon = Leaflet.divIcon({
       className: "world-map__location-marker",
       iconAnchor: [3, 0],
@@ -44,15 +45,28 @@ export class WorldMap {
     });
 
     const marker =  Leaflet.marker(latlng, { icon: markerIcon });
-    let labelHtml = name;
-    if (isPlayerLocation) {
-      labelHtml = `<i class="mdi mdi-map-marker world-map__location-label-current-location-icon"></i> ${labelHtml}`;
+    let labelHtml = location.settlement.name;
+    if (location.explorationZone) {
+      labelHtml = `
+        ${labelHtml}
+        <span class="world-map__location-label-exploration-zone-name">${location.explorationZone.name}</span>
+      `;
     }
+    if (isPlayerLocation) {
+      labelHtml = `
+        <i class="mdi mdi-map-marker world-map__location-label-current-location-icon"></i>
+        ${labelHtml}
+      `;
+    }
+    const labelClassName = classNames({
+      "world-map__location-label": true,
+      "world-map__location-label--with-exploration-zone": location.explorationZone !== undefined,
+    });
     marker.bindTooltip(labelHtml, {
-      className: "world-map__location-label",
+      className: labelClassName,
       direction: "center",
       interactive: !isPlayerLocation,
-      offset: [0, 20],
+      offset: [0, 18],
       permanent: true,
     }).openTooltip();
 
