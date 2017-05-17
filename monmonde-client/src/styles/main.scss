@@ -77,14 +77,35 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
+      border-bottom: 1px solid #ccc; 
+      padding: 0 0.31em;
+
+      > form {
+        width: 100%;
+      }
     }
 
     .address-bar {
-      width: 600px;   
       border: none;
-      text-align: center;
       padding: 0.4em;
+      border: 1px solid #dcdcdc;
+      background: #fff;
       border-radius: 2px;
+      display: flex;
+      align-content: center;
+      justify-content: flex-start;
+
+      &__input {
+        outline: none;
+        border: none;
+      }
+
+      &__favicon {
+        margin-right: 0.6em;
+        width: 16px;
+        height: 16px;
+        border: none;
+      }
     }
 
     webview {

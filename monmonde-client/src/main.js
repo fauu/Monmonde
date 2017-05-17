@@ -11,8 +11,8 @@ require('electron-debug')({ showDevTools: false });
 let window;
 
 createWindow = () => {
-  window = new BrowserWindow({ width: 1366, height: 768, webPreferences: { experimentalFeatures: true }});
-  window.we
+  window = new BrowserWindow({ webPreferences: { experimentalFeatures: true } });
+  window.maximize();
 
   window.loadURL(`file://${__dirname}/index.html`);
   window.setMenu(null);
