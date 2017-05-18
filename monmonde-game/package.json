@@ -1,5 +1,5 @@
 {
-  "name": "monmonde-client",
+  "name": "monmonde-game",
   "version": "0.0.1",
   "main": "./src/main.js",
   "scripts": {

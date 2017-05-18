@@ -5,11 +5,11 @@
   "suppressTaskName": true,
   "tasks": [
     {
-      "taskName": "start-client",
+      "taskName": "start",
       "command": "yarn",
       "args": ["start"],
       "options": {
-        "cwd": "${workspaceRoot}/monmonde-client"
+        "cwd": "${workspaceRoot}/monmonde-game"
       }
     }
   ]
