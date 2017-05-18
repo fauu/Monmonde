@@ -1,7 +1,7 @@
 import { inject } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { GameStore } from "./GameStore";
+import { GameStore } from "../core/GameStore";
 
 interface ILocationViewProps {
   gameStore?: GameStore;

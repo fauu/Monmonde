@@ -1,8 +1,8 @@
 import { inject, observer } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { GameStore } from "./GameStore";
-import { Icon } from "./Icon";
+import { Icon } from "../common/Icon";
+import { GameStore } from "../core/GameStore";
 
 interface ISidebarProps {
   gameStore?: GameStore;

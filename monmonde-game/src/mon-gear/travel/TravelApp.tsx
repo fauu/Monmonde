@@ -3,10 +3,10 @@ import { observable, when } from "mobx";
 import { inject, observer } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { GameStore } from "./GameStore";
-import { GeographyStore } from "./GeographyStore";
-import { Icon } from "./Icon";
-import { WorldMap } from "./world-map/WorldMap";
+import { Icon } from "../../common/Icon";
+import { GameStore } from "../../core/GameStore";
+import { GeographyStore } from "../../core/GeographyStore";
+import { WorldMap } from "./WorldMap";
 
 export interface ITravelAppProps {
   gameStore?: GameStore;

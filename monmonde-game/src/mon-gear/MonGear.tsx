@@ -4,11 +4,11 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { spring } from "react-motion";
 import Transition from "react-motion-ui-pack";
-import { GameStore } from "./GameStore";
-import { Icon } from "./Icon";
+import { Icon } from "../common/Icon";
+import { GameStore } from "../core/GameStore";
 import { MonGearApp, MonGearStore } from "./MonGearStore";
-import { TravelApp } from "./TravelApp";
-import { WebBrowserApp } from "./WebBrowserApp";
+import { TravelApp } from "./travel/TravelApp";
+import { WebBrowserApp } from "./web-browser/WebBrowserApp";
 
 interface IMonGearProps {
   gameStore?: GameStore;

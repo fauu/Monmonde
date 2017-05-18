@@ -1,11 +1,14 @@
-const { app, BrowserWindow } = require('electron');
-const { enableLiveReload } = require('electron-compile');
 const path = require('path');
 const url = require('url');
-const localShortcut = require('electron-localshortcut');
-const root = path.join(__dirname, '..');
-require('electron-compile').init(root, './main');
+const { app, BrowserWindow } = require('electron');
+const { enableLiveReload } = require('electron-compile');
+
+const rootDir = path.join(__dirname, '..');
+
+require('electron-compile').init(rootDir, './main');
+
 enableLiveReload();
+
 require('electron-debug')({ showDevTools: false });
 
 let window;

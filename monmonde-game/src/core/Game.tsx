@@ -5,15 +5,15 @@ import { spring } from "react-motion";
 import Transition from "react-motion-ui-pack";
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import { MonGear } from "./MonGear";
-import { Sidebar } from "./Sidebar";
+import { MonGear } from "../mon-gear/MonGear";
+import { Sidebar } from "../sidebar/Sidebar";
 
-import { GabenView } from "./GabenView";
-import { LocationView } from "./LocationView";
+import { GabenView } from "../gaben-view/GabenView";
+import { LocationView } from "../location-view/LocationView";
 
+import { MonGearStore } from "../mon-gear/MonGearStore";
 import { GameStore } from "./GameStore";
 import { GeographyStore } from "./GeographyStore";
-import { MonGearStore } from "./MonGearStore";
 
 import { Country } from "./Country";
 import { ExplorationZone } from "./ExplorationZone";

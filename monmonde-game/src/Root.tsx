@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 
 const render = () => {
-  const Game = require("./Game").Game;
+  const Game = require("./core/Game").Game;
 
   ReactDOM.render(
     <AppContainer>
