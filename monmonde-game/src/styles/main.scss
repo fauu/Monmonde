@@ -60,16 +60,41 @@ body {
     background: #DDDDDD;
 
     .top-bar {
-      @include acrylic-solid(rgb(235, 235, 235));
+      @include acrylic-front(rgba(255, 255, 255, 0.7));
+      position: absolute;
+      width: calc(100% - (0.31em * 2));
       height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-bottom: 1px solid #ccc; 
       padding: 0 0.31em;
 
       > form {
         width: 100%;
+      }
+    }
+
+    .top-bar-button {
+      padding: 0.15em 0.3em; 
+      margin-right: 0.2em;
+      color: rgba($color-bg, 0.9);
+      font-size: 120%;
+      border-radius: 2px;
+      @include transition();
+
+      &:not(.top-bar-button--disabled) {
+        &:hover {
+          cursor: pointer;
+          background: rgba($color-bg, 0.1);
+        }
+
+        &:active {
+          background: $color-text;
+        }
+      }
+
+      &--disabled {
+        color: rgba($color-bg, 0.2);
       }
     }
 
@@ -83,7 +108,7 @@ body {
       align-content: center;
       justify-content: flex-start;
 
-      &__input {
+      input {
         outline: none;
         border: none;
         width: 100%;
@@ -99,7 +124,7 @@ body {
 
     webview {
       width: 100%;
-      height: calc(100% - 40px);
+      height: 100%;
     }
   };
 }
