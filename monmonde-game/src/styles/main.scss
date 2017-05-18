@@ -18,7 +18,7 @@ $color-bg: rgb(40, 40, 40);
 $color-text: rgb(240, 240, 240);
 
 $color-travel-primary: #304FFE;
-$color-web-browser-primary: #304FFE;
+$color-web-browser-primary: #039BE5;
 
 
 * {
@@ -60,14 +60,13 @@ body {
     background: #DDDDDD;
 
     .top-bar {
-      @include acrylic-front(rgba(255, 255, 255, 0.7));
-      position: absolute;
-      width: calc(100% - (0.31em * 2));
+      @include acrylic-solid(rgb(240, 240, 240));
       height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0 0.31em;
+      border-bottom: 1px solid rgb(220, 220, 220);
 
       > form {
         width: 100%;
@@ -76,7 +75,6 @@ body {
 
     .top-bar-button {
       padding: 0.15em 0.3em; 
-      margin-right: 0.2em;
       color: rgba($color-bg, 0.9);
       font-size: 120%;
       border-radius: 2px;
@@ -107,6 +105,7 @@ body {
       display: flex;
       align-content: center;
       justify-content: flex-start;
+      margin-left: 0.2em;
 
       input {
         outline: none;
@@ -124,7 +123,7 @@ body {
 
     webview {
       width: 100%;
-      height: 100%;
+      height: calc(100% - 40px);
     }
   };
 }
@@ -291,7 +290,7 @@ body {
     color: rgba($color-bg, 0.2);
   }
 
-  &:not(--disabled) {
+  &:not(.world-map__zoom-button--disabled) {
     &:hover {
       border-color: rgb(255, 255, 255); 
       background-color: rgba(255, 255, 255, 0.6);
@@ -398,7 +397,7 @@ body {
   }
 
   &__app-bar {
-    @include acrylic-front(rgba(255, 255, 255, 0.5));
+    @include acrylic-front(rgba(255, 255, 255, 0.6));
     width: 100%;
     height: 50px;
     z-index: 9001;

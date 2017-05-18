@@ -13,6 +13,8 @@ export class WebBrowserApp extends React.Component<{}, void> {
   @observable private addressBarUrl: string = "";
   @observable private faviconUrl: string = "";
   @observable private canGoBack: boolean = false;
+  @observable private canGoForward: boolean = false;
+  @observable private webpageThemeColor: string;
   private webViewRef: any;
 
   public render() {
@@ -26,12 +28,27 @@ export class WebBrowserApp extends React.Component<{}, void> {
       "top-bar-button--back": true,
       "top-bar-button--disabled": !this.canGoBack,
     });
+    const forwardButtonClassNames = classNames({
+      "top-bar-button": true,
+      "top-bar-button--back": true,
+      "top-bar-button--disabled": !this.canGoForward,
+    });
+    const refreshButtonClassNames = classNames({
+      "top-bar-button": true,
+      "top-bar-button--refresh": true,
+    });
 
     return (
       <div className="app app--web-browser">
         <div className="top-bar">
           <div className={backButtonClassNames} onClick={this.handleBackButtonClick}>
             <Icon name="arrow-left" />
+          </div>
+          <div className={forwardButtonClassNames} onClick={this.handleForwardButtonClick}>
+            <Icon name="arrow-right" />
+          </div>
+          <div className={refreshButtonClassNames} onClick={this.handleRefreshButtonClick}>
+            <Icon name="refresh" />
           </div>
 
           <form onSubmit={this.handleAddressBarSubmit}>
@@ -53,7 +70,6 @@ export class WebBrowserApp extends React.Component<{}, void> {
           style={webViewWrapperStyle}
           onDidNavigate={this.handleWebviewDidNavigate}
           onPageFaviconUpdated={this.handleWebviewFaviconUpdated}
-          onDomReady={this.handleWebviewDomReady}
         />
       </div>
     );
@@ -72,10 +88,7 @@ export class WebBrowserApp extends React.Component<{}, void> {
   private handleWebviewDidNavigate = (e) => {
     this.addressBarUrl = e.url;
     this.canGoBack = this.webViewRef.canGoBack();
-  }
-
-  private handleWebviewDomReady = (e) => {
-    this.webViewRef.insertCSS("html { margin-top: 40px }");
+    this.canGoForward = this.webViewRef.canGoForward();
   }
 
   private handleWebviewFaviconUpdated = (e) => {
@@ -84,6 +97,14 @@ export class WebBrowserApp extends React.Component<{}, void> {
 
   private handleBackButtonClick = () => {
     this.webViewRef.goBack();
+  }
+
+  private handleForwardButtonClick = () => {
+    this.webViewRef.goForward();
+  }
+
+  private handleRefreshButtonClick = () => {
+    this.webViewRef.reload();
   }
 
   private setWebViewRef = (element: any) => {
