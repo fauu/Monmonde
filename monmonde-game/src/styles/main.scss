@@ -43,21 +43,9 @@ body {
 #game {
   display: flex;
   flex-direction: row;
-
-  > div:first-child {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    > div:first-child {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-  }
 }
 
-.mongear-animator {
+.mongear-container {
   z-index: 9001;
   width: 100%;
   height: 100%;

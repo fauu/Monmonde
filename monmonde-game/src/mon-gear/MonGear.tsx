@@ -3,8 +3,8 @@ import { inject, observer } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { spring } from "react-motion";
-import Transition from "react-motion-ui-pack";
 import { Icon } from "../common/Icon";
+import { UiTransition } from "../common/UiTransition";
 import { GameStore } from "../core/GameStore";
 import { MonGearApp, MonGearStore } from "./MonGearStore";
 import { TravelApp } from "./travel/TravelApp";
@@ -42,15 +42,14 @@ export class MonGear extends React.Component<IMonGearProps, {}> {
     return (
       <div className="mongear">
         <div className="mongear__screen">
-          <div className="mongear__app-container mongear__app-container--app--travel">
-            <Transition
-              component="div"
-              enter={{ opacity: 1 }}
-              leave={{ opacity: 0 }}
+          <div className="mongear__app-container">
+            <UiTransition
+              wrapperClassName="mongear__app-animator-wrapper"
+              childWrapperClassName="mongear__app-animator"
             >
-              {this.monGearStore.activeApp === "travel" && <div className="mongear__app-animator" key="1"><TravelApp /></div>}
-              {this.monGearStore.activeApp === "web-browser" && <div className="mongear__app-animator" key="2"><WebBrowserApp /></div>}
-            </Transition>
+              {this.monGearStore.activeApp === "travel" && <TravelApp />}
+              {this.monGearStore.activeApp === "web-browser" && <WebBrowserApp />}
+            </UiTransition>
           </div>
 
           <div className="mongear__app-bar">

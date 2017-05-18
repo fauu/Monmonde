@@ -5,15 +5,16 @@ import { spring } from "react-motion";
 import Transition from "react-motion-ui-pack";
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import { MonGear } from "../mon-gear/MonGear";
-import { Sidebar } from "../sidebar/Sidebar";
-
-import { GabenView } from "../gaben-view/GabenView";
-import { LocationView } from "../location-view/LocationView";
 
 import { MonGearStore } from "../mon-gear/MonGearStore";
 import { GameStore } from "./GameStore";
 import { GeographyStore } from "./GeographyStore";
+import { SettingsStore } from "./SettingsStore";
+
+import { GabenView } from "../gaben-view/GabenView";
+import { LocationView } from "../location-view/LocationView";
+import { MonGear } from "../mon-gear/MonGear";
+import { Sidebar } from "../sidebar/Sidebar";
 
 import { Country } from "./Country";
 import { ExplorationZone } from "./ExplorationZone";
@@ -21,10 +22,13 @@ import { Location } from "./Location";
 import { Player } from "./Player";
 import { Settlement } from "./Settlement";
 
+import { UiTransition } from "../common/UiTransition";
+
 @observer
 export class Game extends React.Component<{}, {}> {
 
   private gameStore: GameStore;
+  private settingsStore: SettingsStore;
   private geographyStore: GeographyStore;
   private monGearStore: MonGearStore;
   private stores = {};
@@ -33,6 +37,7 @@ export class Game extends React.Component<{}, {}> {
     super();
 
     this.gameStore = new GameStore();
+    this.settingsStore = new SettingsStore();
     this.monGearStore = new MonGearStore();
     this.geographyStore = new GeographyStore();
 
@@ -40,6 +45,7 @@ export class Game extends React.Component<{}, {}> {
       gameStore: this.gameStore,
       geographyStore: this.geographyStore,
       monGearStore: this.monGearStore,
+      settingsStore: this.settingsStore,
     };
 
     this.initDevDb();
@@ -49,30 +55,23 @@ export class Game extends React.Component<{}, {}> {
     return (
       <Provider {...this.stores}>
         <div id="game">
-          <Transition
-            component="div"
-            enter={{ opacity: spring(1) }}
-            leave={{ opacity: 0 }}
-          >
-            {this.gameStore.activeView === "GabenView" && <div key="1"><GabenView /></div>}
-            {this.gameStore.activeView === "LocationView" && <div key="2"><LocationView /></div>}
-          </Transition>
+          <UiTransition wrapperClassName="view-animator">
+            {this.gameStore.activeView === "GabenView" && <GabenView />}
+            {this.gameStore.activeView === "LocationView" && <LocationView />}
+          </UiTransition>
 
-          <Transition
-            component={false}
-            enter={{ opacity: spring(1) }}
-            leave={{ opacity: 0 }}
-          >
+          <UiTransition>
             {this.gameStore.monGearActive && <div className="screen-fade" key="1" />}
-          </Transition>
+          </UiTransition>
 
-          <Transition
-            component={false}
+          <UiTransition
+            childWrapperClassName="mongear-container"
             enter={{ translateY: spring(0, { stiffness: 400, damping: 80 }) }}
             leave={{ translateY: 2000 }}
           >
-            {this.gameStore.monGearActive && <div className="mongear-animator" key="1"><MonGear /></div>}
-          </Transition>
+            {this.gameStore.monGearActive && <MonGear />}
+          </UiTransition>
+
           <Sidebar />
         </div>
       </Provider>
