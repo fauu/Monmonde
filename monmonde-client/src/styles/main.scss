@@ -257,6 +257,40 @@ body {
   font: inherit !important;
 }
 
+.world-map__zoom-control {
+  @include acrylic-front(rgba(255, 255, 255, 0.6));
+  position: absolute;
+  z-index: 111131111;
+  top: 1em;
+  left: 1em;
+}
+
+.world-map__zoom-button {
+  font-size: 110%;
+  padding: 0.4em 0.5em;
+  cursor: pointer;
+  border: 2px solid transparent; 
+  @include transition();
+  color: rgba($color-bg, 0.9);
+  transition-property: color, border-color, background-color;
+
+  &--disabled {
+    color: rgba($color-bg, 0.2);
+  }
+
+  &:not(--disabled) {
+    &:hover {
+      border-color: rgb(255, 255, 255); 
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    &:active {
+      border-color: transparent;
+      background-color: transparent;
+    }
+  }
+}
+
 .world-map__location-marker {
   width: 4px;
   height: 4px;
@@ -264,6 +298,13 @@ body {
   border-radius: 100px;
   border: 1px solid rgb(230, 230, 230);
   box-shadow: 0 0 0 1px rgba($color-bg, 0.7);
+  @include transition();
+  transition-property: opacity;
+  opacity: 1;
+
+  .zoom-4 &, .zoom-5 & {
+    opacity: 0;
+  }
 }
 
 .world-map__location-label-current-location-icon {
@@ -272,15 +313,16 @@ body {
 
 .world-map__location-label {
   background: rgba($color-bg, 0.7);
-  font-size: 90%;
   font-weight: bold;
   position: absolute;
+  font-size: 90%;
   padding: 0.2em 0.5em; 
   color: $color-text;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
   border: none !important;
   border-radius: 0 !important;
   @include transition;
+  opacity: 1 !important;
 
   &--with-exploration-zone {
     border-bottom: 3px solid #EF6C00 !important;
@@ -292,6 +334,7 @@ body {
 
   &:hover {
     background: $color-travel-primary;
+    z-index: 13337;
 
     .world-map__location-label-exploration-zone-name {
       display: block;

@@ -1,7 +1,6 @@
 import * as Leaflet from "leaflet";
 import * as MBTiles from "mbtiles-offline";
 
-const zoomLevel = 7;
 const base64Prefix = "data:image/png;base64,";
 const bufferTiles = 1;
 
@@ -10,10 +9,9 @@ export const WorldMapTileLayer = Leaflet.TileLayer.extend({
   edgeBufferTiles: bufferTiles,
   mbtiles: undefined,
   options: {
-    maxZoom: zoomLevel,
-    minZoom: zoomLevel,
+    maxZoom: 7,
+    minZoom: 4,
   },
-  size: undefined,
 
   createTile(coords: any, done: any) {
     const tile = document.createElement("img");
@@ -34,17 +32,10 @@ export const WorldMapTileLayer = Leaflet.TileLayer.extend({
 
   initialize(mbtiles: MBTiles, options: any) {
     this.mbtiles = mbtiles;
-
-    Leaflet.Util.setOptions(this, options);
-
-    mbtiles.count()
-      .then((count) => {
-        this.size = Math.sqrt(count);
-      });
   },
 
   getTileUrl(tilePoint: any, tile: any) {
-    const coords = [tilePoint.x, this.size - tilePoint.y - 1, zoomLevel];
+    const coords = [tilePoint.x, Math.pow(2, tilePoint.z) - tilePoint.y - 1, tilePoint.z];
 
     this.mbtiles.findOne(coords)
       .then((image: Uint8Array) => {

@@ -14,7 +14,7 @@ export class Icon extends React.Component<IIconProps, any> {
       mdi: true,
       [`mdi-${this.props.name}`]: true,
       [`mdi-rotate-${this.props.rotation}`]: this.props.rotation,
-      [`${this.props.className}`]: true,
+      [`${this.props.className}`]: this.props.className,
     });
 
     return <i className={className} />;

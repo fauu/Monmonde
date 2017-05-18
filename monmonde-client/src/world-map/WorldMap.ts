@@ -10,10 +10,16 @@ require("leaflet-edgebuffer");
 export class WorldMap {
 
   private static readonly setViewDelayMs = 2000;
-  private static readonly mbtilesPath = "../../assets/world-map.mbtiles";
+  private static readonly mbtilesPath = "../../assets/world-map-new.mbtiles";
 
   private map: Leaflet.Map;
   private mbtiles: MBTiles;
+  private onZoomEnd: () => any;
+  private zoomLevel: number = 7;
+
+  public constructor(onZoomEnd: () => any) {
+    this.onZoomEnd = onZoomEnd;
+  }
 
   public init(host: HTMLElement, viewCenterCoords: [number, number]) {
     const mbtilesPath = path.resolve(__dirname, WorldMap.mbtilesPath);
@@ -25,7 +31,34 @@ export class WorldMap {
     this.map = Leaflet.map(host, { zoomControl: false, attributionControl: false });
     mbtilesLayer.addTo(this.map);
 
-    setTimeout(() => this.map.setView(viewCenterCoords, 7), WorldMap.setViewDelayMs);
+    host.classList.add(`zoom-${this.zoomLevel}`);
+
+    this.map.on("zoomend", () => {
+      const newZoomLevel = this.map.getZoom();
+      host.classList.remove(`zoom-${this.zoomLevel}`);
+      this.zoomLevel = newZoomLevel;
+      host.classList.add(`zoom-${this.zoomLevel}`);
+
+      this.onZoomEnd();
+    });
+
+    setTimeout(() => this.map.setView(viewCenterCoords, this.zoomLevel), WorldMap.setViewDelayMs);
+  }
+
+  public zoomIn() {
+    this.map.zoomIn();
+  }
+
+  public zoomOut() {
+    this.map.zoomOut();
+  }
+
+  public isMaxZoomed(): boolean {
+    return this.map.getZoom() === this.map.getMaxZoom();
+  }
+
+  public isMinZoomed(): boolean {
+    return this.map.getZoom() === this.map.getMinZoom();
   }
 
   public addLocationMarkers(locations: Location[], playerLocation: Location) {
