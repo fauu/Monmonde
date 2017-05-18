@@ -15,7 +15,7 @@ export interface IUiTransitionProps {
 }
 
 @inject("settingsStore")
-export class UiTransition extends React.Component<IUiTransitionProps, {}> {
+export class UiTransition extends React.Component<IUiTransitionProps, void> {
 
   public render() {
     const {settingsStore, wrapperClassName, childWrapperClassName, enter, leave, children} = this.props;

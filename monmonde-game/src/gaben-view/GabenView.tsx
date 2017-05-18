@@ -1,13 +1,11 @@
-import { Gaben } from "monmonde-gaben";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-export class GabenView extends React.Component<{}, {}> {
+import { Gaben } from "monmonde-gaben";
 
-  public refs: {
-    gabenHost: HTMLElement;
-  };
+export class GabenView extends React.Component<{}, void> {
 
+  private gabenHostRef: HTMLElement;
   private gaben: Gaben;
 
   public constructor() {
@@ -17,17 +15,21 @@ export class GabenView extends React.Component<{}, {}> {
   }
 
   public componentDidMount() {
-    this.gaben.init(this.refs.gabenHost);
+    this.gaben.init(this.gabenHostRef);
   }
 
   public render() {
     return (
-      <div className="view view--gaben" ref="gabenHost" />
+      <div className="view view--gaben" ref={this.setGabenHostRef} />
     );
   }
 
   public componentWillUnmount() {
     this.gaben.destroy();
+  }
+
+  private setGabenHostRef = (element: HTMLElement) => {
+    this.gabenHostRef = element;
   }
 
 }

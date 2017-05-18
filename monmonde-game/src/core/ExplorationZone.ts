@@ -1,4 +1,5 @@
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+
 import { Location } from "./Location";
 import { MonmondeEntity } from "./MonmondeEntity";
 

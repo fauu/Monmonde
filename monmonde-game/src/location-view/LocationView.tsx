@@ -1,6 +1,7 @@
 import { inject } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+
 import { GameStore } from "../core/GameStore";
 
 interface ILocationViewProps {
@@ -8,7 +9,7 @@ interface ILocationViewProps {
 }
 
 @inject("gameStore")
-export class LocationView extends React.Component<ILocationViewProps, {}> {
+export class LocationView extends React.Component<ILocationViewProps, void> {
 
   private gameStore: GameStore;
 

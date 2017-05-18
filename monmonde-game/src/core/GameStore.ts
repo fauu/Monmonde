@@ -1,4 +1,5 @@
 import { observable } from "mobx";
+
 import { Player } from "./Player";
 
 type GameView = "GabenView" | "LocationView";

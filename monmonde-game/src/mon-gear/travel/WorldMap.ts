@@ -2,10 +2,11 @@ import * as classNames from "classnames";
 import * as Leaflet from "leaflet";
 import * as MBTiles from "mbtiles-offline";
 import * as path from "path";
-import { Location } from "../../core/Location";
-import { WorldMapTileLayer } from "./WorldMapTileLayer";
 // tslint:disable-next-line:no-var-requires
 require("leaflet-edgebuffer");
+
+import { Location } from "../../core/Location";
+import { WorldMapTileLayer } from "./WorldMapTileLayer";
 
 export class WorldMap {
 

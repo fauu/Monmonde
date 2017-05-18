@@ -3,9 +3,11 @@ import { inject, observer } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { spring } from "react-motion";
+
 import { Icon } from "../common/Icon";
 import { UiTransition } from "../common/UiTransition";
 import { GameStore } from "../core/GameStore";
+
 import { MonGearApp, MonGearStore } from "./MonGearStore";
 import { TravelApp } from "./travel/TravelApp";
 import { WebBrowserApp } from "./web-browser/WebBrowserApp";
@@ -17,7 +19,7 @@ interface IMonGearProps {
 
 @inject("gameStore", "monGearStore")
 @observer
-export class MonGear extends React.Component<IMonGearProps, {}> {
+export class MonGear extends React.Component<IMonGearProps, void> {
 
   private gameStore: GameStore;
   private monGearStore: MonGearStore;

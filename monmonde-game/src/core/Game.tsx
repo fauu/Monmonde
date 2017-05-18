@@ -25,7 +25,7 @@ import { Settlement } from "./Settlement";
 import { UiTransition } from "../common/UiTransition";
 
 @observer
-export class Game extends React.Component<{}, {}> {
+export class Game extends React.Component<{}, void> {
 
   private gameStore: GameStore;
   private settingsStore: SettingsStore;

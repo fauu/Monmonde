@@ -1,6 +1,7 @@
 import { inject, observer } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+
 import { Icon } from "../common/Icon";
 import { GameStore } from "../core/GameStore";
 
@@ -10,7 +11,7 @@ interface ISidebarProps {
 
 @inject("gameStore")
 @observer
-export class Sidebar extends React.Component<ISidebarProps, {}> {
+export class Sidebar extends React.Component<ISidebarProps, void> {
 
   private gameStore: GameStore;
 

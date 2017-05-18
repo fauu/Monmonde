@@ -5,7 +5,7 @@ import * as ReactDOM from "react-dom";
 import * as WebView from "react-electron-web-view";
 
 @observer
-export class WebBrowserApp extends React.Component<{}, {}> {
+export class WebBrowserApp extends React.Component<{}, void> {
 
   @observable private webviewUrl: string = "http://github.com/fauu/Monmonde";
   @observable private addressBarUrl: string = "";
