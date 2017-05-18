@@ -53,7 +53,7 @@ const ExitExplorationZoneButton = (props: { onClick: any }) => (
     <Icon name="exit-to-app" className="sidebar-button__icon" />
     <span className="sidebar-button__text">Exit Zone</span>
   </div>
-)
+);
 
 // tslint:disable-next-line:variable-name
 const OpenMonGearButton = (props: { onClick: any }) => (

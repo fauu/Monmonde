@@ -1,4 +1,3 @@
-import * as classNames from "classnames";
 import { inject, observer } from "mobx-react";
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -8,6 +7,7 @@ import { Icon } from "../common/Icon";
 import { UiTransition } from "../common/UiTransition";
 import { GameStore } from "../core/GameStore";
 
+import { AppBarButton } from "./AppBarButton";
 import { MonGearApp, MonGearStore } from "./MonGearStore";
 import { TravelApp } from "./travel/TravelApp";
 import { WebBrowserApp } from "./web-browser/WebBrowserApp";
@@ -30,16 +30,7 @@ export class MonGear extends React.Component<IMonGearProps, void> {
   }
 
   public render() {
-    const travelAppButtonClassName = classNames({
-      "mongear__app-bar-button": true,
-      "mongear__app-bar-button--active": this.monGearStore.activeApp === "travel",
-      "mongear__app-bar-button--travel": true,
-    });
-    const webBrowserAppButtonClassName = classNames({
-      "mongear__app-bar-button": true,
-      "mongear__app-bar-button--active": this.monGearStore.activeApp === "web-browser",
-      "mongear__app-bar-button--web-browser": true,
-    });
+    const activeApp = this.monGearStore.activeApp;
 
     return (
       <div className="mongear">
@@ -56,18 +47,24 @@ export class MonGear extends React.Component<IMonGearProps, void> {
 
           <div className="mongear__app-bar">
             <div className="mongear__app-bar-buttons">
-              <div
-                className={travelAppButtonClassName}
-                onClick={() => this.handleAppButtonClick("travel")}>
-                <Icon name="earth" />
-              </div>
-              <div
-                className={webBrowserAppButtonClassName}
-                onClick={() => this.handleAppButtonClick("web-browser")}>
-                <Icon name="web" />
-              </div>
+              <AppBarButton
+                app="travel"
+                iconName="earth"
+                isActive={activeApp === "travel"}
+                onClick={this.handleAppButtonClick}
+              />
+              <AppBarButton
+                app="web-browser"
+                iconName="web"
+                isActive={activeApp === "web-browser"}
+                onClick={this.handleAppButtonClick}
+              />
             </div>
-            <div className="mongear__app-bar-button mongear__app-bar-button--exit-mongear" onClick={this.handleExitButtonClick}>
+
+            <div
+              className="mongear__app-bar-button mongear__app-bar-button--exit-mongear"
+              onClick={this.handleExitButtonClick}
+            >
               <Icon name="arrow-down" />
             </div>
           </div>
