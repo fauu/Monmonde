@@ -5,7 +5,7 @@ import * as ReactDOM from "react-dom";
 import { GameStore } from "../core/GameStore";
 
 interface ILocationViewProps {
-  gameStore?: GameStore;
+  readonly gameStore?: GameStore;
 }
 
 @inject("gameStore")

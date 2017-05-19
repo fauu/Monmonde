@@ -1,0 +1,16 @@
+{
+  "name": "monmonde-eureka",
+  "version": "0.0.1",
+  "repository": "https://fauu@bitbucket.org/fauu/monmonde-eureka.git",
+  "author": "fauu <fau999@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "compile:tslint": "tsc -p tslint-rules"
+  },
+  "dependencies": {
+    "tslint": "^5.2.0",
+    "tslint-microsoft-contrib": "^5.0.0",
+    "typescript": "^2.3.2",
+    "vrsource-tslint-rules": "^5.1.0"
+  }
+}

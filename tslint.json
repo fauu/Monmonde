@@ -1,13 +1,29 @@
 {
+    "rulesDirectory": [
+        "node_modules/vrsource-tslint-rules/rules",
+        "node_modules/tslint-microsoft-contrib",
+        "tslint-rules/"
+    ],
     "defaultSeverity": "error",
     "extends": [
         "tslint:recommended",
         "tslint-react"
     ],
-
     "jsRules": {},
     "rules": {
-        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"]
-    },
-    "rulesDirectory": []
+        "literal-spacing": [true, {"array": ["always"], "object": ["always"]}],
+        "member-access": [true, "check-accessor", "check-constructor"],
+        "no-default-export": true,
+        "no-invalid-this": true,
+        "no-unused-variable": [true, "react"],
+        "promise-must-complete": true,
+        "react-proper-lifecycle-methods": true,
+        "react-readonly-props-and-state": true,
+        "react-unused-props-and-state": [ true, 
+            {
+                "props-interface-regex": "Props$"
+            } 
+        ],
+        "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case", "allow-leading-underscore"]
+    }
 }

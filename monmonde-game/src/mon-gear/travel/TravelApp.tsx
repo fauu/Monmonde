@@ -11,8 +11,8 @@ import { GeographyStore } from "../../core/GeographyStore";
 import { WorldMap } from "./WorldMap";
 
 export interface ITravelAppProps {
-  gameStore?: GameStore;
-  geographyStore?: GeographyStore;
+  readonly gameStore?: GameStore;
+  readonly geographyStore?: GeographyStore;
 }
 
 type ZoomButton = "Plus" | "Minus";

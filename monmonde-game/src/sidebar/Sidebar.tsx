@@ -6,7 +6,7 @@ import { Icon } from "../common/Icon";
 import { GameStore } from "../core/GameStore";
 
 interface ISidebarProps {
-  gameStore?: GameStore;
+  readonly gameStore?: GameStore;
 }
 
 @inject("gameStore")
@@ -47,7 +47,6 @@ export class Sidebar extends React.Component<ISidebarProps, void> {
   }
 }
 
-// tslint:disable-next-line:variable-name
 const ExitExplorationZoneButton = (props: { onClick: any }) => (
   <div className="sidebar-button sidebar-button--exit-exploration-zone" onClick={props.onClick}>
     <Icon name="exit-to-app" className="sidebar-button__icon" />
@@ -55,7 +54,6 @@ const ExitExplorationZoneButton = (props: { onClick: any }) => (
   </div>
 );
 
-// tslint:disable-next-line:variable-name
 const OpenMonGearButton = (props: { onClick: any }) => (
   <div className="sidebar-button sidebar-button--open-mongear" onClick={props.onClick}>
     <Icon name="tablet" className="sidebar-button__icon" />

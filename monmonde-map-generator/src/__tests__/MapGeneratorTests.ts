@@ -2,7 +2,6 @@ import { IMapGenerator } from "../IMapGenerator";
 import { MapChunk } from "../MapChunk";
 import { MapChunkGenerator } from "../MapChunkGenerator";
 
-// tslint:disable-next-line:variable-name
 const MockMapGenerator = jest.fn<IMapGenerator>(() => ({
 
   getObjectLayer: jest.fn((position: [number, number], surfaceTypeId: number): number => {

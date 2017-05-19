@@ -6,12 +6,12 @@ import Transition from "react-motion-ui-pack";
 import { SettingsStore } from "../core/SettingsStore";
 
 export interface IUiTransitionProps {
-  wrapperClassName?: string;
-  childWrapperClassName?: string;
-  enter?: {};
-  leave?: {};
-  children?: any;
-  settingsStore?: SettingsStore;
+  readonly wrapperClassName?: string;
+  readonly childWrapperClassName?: string;
+  readonly enter?: {};
+  readonly leave?: {};
+  readonly children?: any;
+  readonly settingsStore?: SettingsStore;
 }
 
 @inject("settingsStore")

@@ -5,10 +5,10 @@ import { Icon } from "../common/Icon";
 import { MonGearApp } from "./MonGearStore";
 
 interface IAppBarButtonProps {
-  app: MonGearApp;
-  iconName: string;
-  isActive: boolean;
-  onClick: (app: MonGearApp) => any;
+  readonly app: MonGearApp;
+  readonly iconName: string;
+  readonly isActive: boolean;
+  readonly onClick: (app: MonGearApp) => any;
 }
 
 export class AppBarButton extends React.Component<IAppBarButtonProps, void> {

@@ -2,9 +2,9 @@ import * as classNames from "classnames";
 import * as React from "react";
 
 interface IIconProps {
-  name: string;
-  rotation?: number;
-  className?: string;
+  readonly name: string;
+  readonly rotation?: number;
+  readonly className?: string;
 }
 
 export class Icon extends React.Component<IIconProps, any> {

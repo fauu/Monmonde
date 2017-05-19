@@ -1,10 +1,10 @@
+// tslint:disable:no-invalid-this
 import * as Leaflet from "leaflet";
 import * as MBTiles from "mbtiles-offline";
 
 const base64Prefix = "data:image/png;base64,";
 const bufferTiles = 1;
 
-// tslint:disable-next-line:variable-name
 export const WorldMapTileLayer = Leaflet.TileLayer.extend({
   edgeBufferTiles: bufferTiles,
   mbtiles: undefined,

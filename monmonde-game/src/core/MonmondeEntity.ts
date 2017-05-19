@@ -1,4 +1,4 @@
-export class MonmondeEntity<T> {
+export abstract class MonmondeEntity<T> {
 
   public constructor(data?: T) {
     if (data) {

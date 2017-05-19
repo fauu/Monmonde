@@ -13,8 +13,8 @@ import { TravelApp } from "./travel/TravelApp";
 import { WebBrowserApp } from "./web-browser/WebBrowserApp";
 
 interface IMonGearProps {
-  gameStore?: GameStore;
-  monGearStore?: MonGearStore;
+  readonly gameStore?: GameStore;
+  readonly monGearStore?: MonGearStore;
 }
 
 @inject("gameStore", "monGearStore")
