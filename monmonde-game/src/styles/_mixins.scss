@@ -1,0 +1,14 @@
+@mixin acrylic-solid($color) {
+  background-color: $color !important;
+  background-image: url('../../assets/noise.png') !important;
+}
+
+@mixin acrylic-front($color) {
+  @include acrylic-solid($color);
+  backdrop-filter: blur(10px);
+}
+
+@mixin transition() {
+  transition-property: background, border-color, color;
+  transition-duration: 0.2s;
+}

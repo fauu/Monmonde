@@ -60,6 +60,8 @@ export class Game extends React.Component<{}, void> {
             {this.gameStore.activeView === "LocationView" && <LocationView />}
           </UiTransition>
 
+          <Sidebar />
+
           <UiTransition>
             {this.gameStore.monGearActive && <div className="screen-fade" key="1" />}
           </UiTransition>
@@ -71,8 +73,6 @@ export class Game extends React.Component<{}, void> {
           >
             {this.gameStore.monGearActive && <MonGear />}
           </UiTransition>
-
-          <Sidebar />
         </div>
       </Provider>
     );

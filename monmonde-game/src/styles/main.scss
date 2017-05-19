@@ -1,49 +1,6 @@
-@mixin acrylic-solid($color) {
-  background-color: $color !important;
-  background-image: url('../../assets/noise.png') !important;
-}
-
-@mixin acrylic-front($color) {
-  @include acrylic-solid($color);
-  backdrop-filter: blur(10px);
-}
-
-@mixin transition() {
-  transition-property: background, border-color, color;
-  transition-duration: 0.2s;
-}
-
-$color-primary: #304FFE;
-$color-bg: rgb(40, 40, 40);
-$color-text: rgb(240, 240, 240);
-
-$color-travel-primary: #304FFE;
-$color-web-browser-primary: #039BE5;
-
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto";
-  letter-spacing: -0.03em;
-}
-
-body, html, #game-container, #game {
-  height: 100%;
-  overflow: hidden;
-  user-select: none;
-  cursor: default;
-}
-
-body {
-  font-size: 16px;
-  background: rgb(0, 0, 0);
-}
-
-#game {
-  display: flex;
-  flex-direction: row;
-}
+@import '_colors';
+@import '_mixins';
+@import 'ui/_game';
 
 .mongear-container {
   z-index: 9001;
@@ -75,7 +32,7 @@ body {
 
     .top-bar-button {
       padding: 0.15em 0.3em; 
-      color: rgba($color-bg, 0.9);
+      color: rgba($color-light, 0.9);
       font-size: 120%;
       border-radius: 2px;
       @include transition();
@@ -83,16 +40,16 @@ body {
       &:not(.top-bar-button--disabled) {
         &:hover {
           cursor: pointer;
-          background: rgba($color-bg, 0.1);
+          background: rgba($color-light, 0.1);
         }
 
         &:active {
-          background: $color-text;
+          background: $color-dark;
         }
       }
 
       &--disabled {
-        color: rgba($color-bg, 0.2);
+        color: rgba($color-light, 0.2);
       }
     }
 
@@ -155,7 +112,7 @@ body {
   margin: 0 2em 1em 2em;
   border: 2px solid rgba(20, 20, 20, 0.3);
   padding: 1em;
-  color: $color-text;
+  color: $color-dark;
   box-sizing: border-box;
 
   &:first-child {
@@ -220,14 +177,14 @@ body {
 }
 
 .sidebar {
-  @include acrylic-solid($color-bg);
+  @include acrylic-solid($color-light);
   position: absolute;
   right: 0;
   z-index: 2137;
   width: 310px;
   height: 100%;
-  background-color: $color-bg;
-  color: $color-text;
+  background-color: $color-light;
+  color: $color-dark;
   box-shadow: inset 7px 0 30px -7px rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
@@ -257,7 +214,7 @@ body {
   }
 
   &__arrow {
-    color: rgba($color-text, 0.4);
+    color: rgba($color-dark, 0.4);
   }
 
   &:hover {
@@ -283,11 +240,11 @@ body {
   cursor: pointer;
   border: 2px solid transparent; 
   @include transition();
-  color: rgba($color-bg, 0.9);
+  color: rgba($color-light, 0.9);
   transition-property: color, border-color, background-color;
 
   &--disabled {
-    color: rgba($color-bg, 0.2);
+    color: rgba($color-light, 0.2);
   }
 
   &:not(.world-map__zoom-button--disabled) {
@@ -306,10 +263,10 @@ body {
 .world-map__location-marker {
   width: 4px;
   height: 4px;
-  background: rgba($color-bg, 0.7);
+  background: rgba($color-light, 0.7);
   border-radius: 100px;
   border: 1px solid rgb(230, 230, 230);
-  box-shadow: 0 0 0 1px rgba($color-bg, 0.7);
+  box-shadow: 0 0 0 1px rgba($color-light, 0.7);
   @include transition();
   transition-property: opacity;
   opacity: 1;
@@ -324,12 +281,12 @@ body {
 }
 
 .world-map__location-label {
-  background: rgba($color-bg, 0.7);
+  background: rgba($color-light, 0.7);
   font-weight: bold;
   position: absolute;
   font-size: 90%;
   padding: 0.2em 0.5em; 
-  color: $color-text;
+  color: $color-dark;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
   border: none !important;
   border-radius: 0 !important;
@@ -345,14 +302,14 @@ body {
   }
 
   &:hover {
-    background: $color-travel-primary;
+    background: $color-travel;
     z-index: 13337;
 
     .world-map__location-label-exploration-zone-name {
       display: block;
       font-weight: 500;
       font-size: 90%;
-      color: rgba($color-text, 0.8);
+      color: rgba($color-dark, 0.8);
     }
   }
 }
@@ -420,7 +377,7 @@ body {
     display: flex;
     align-items: center;
     font-size: 120%;
-    color: rgba($color-bg, 0.9);
+    color: rgba($color-light, 0.9);
 
     &:hover {
       @include transition();
@@ -432,13 +389,13 @@ body {
     }
 
     &#{--travel}#{& + --active} {
-      color: $color-travel-primary;
-      border-bottom: 2px solid $color-travel-primary;
+      color: $color-travel;
+      border-bottom: 2px solid $color-travel;
     }
 
     &#{--web-browser}#{& + --active} {
-      color: $color-web-browser-primary;
-      border-bottom: 2px solid $color-web-browser-primary;
+      color: $color-web-browser;
+      border-bottom: 2px solid $color-web-browser;
     }
 
     &:hover {

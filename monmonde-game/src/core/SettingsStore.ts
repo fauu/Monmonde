@@ -1,5 +1,5 @@
 export class SettingsStore {
 
-  public uiTransitionsEnabled = false;
+  public uiTransitionsEnabled = true;
 
 }
