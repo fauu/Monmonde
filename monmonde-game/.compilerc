@@ -3,14 +3,14 @@
     "passthrough": true
   },
   "text/typescript": {
-    "target": "es2017",
-    "lib": ["dom", "dom.iterable", "scripthost", "es6"],
+    "target": "es6",
     "module": "commonjs",
-    "noImplicitAny": true,
-    "experimentalDecorators": true,
-    "noUnusedLocals": true,
-    "sourceMap": true,
+    "moduleResolution": "node",
     "jsx": "react",
-    "noEmitOnError": true
+    "strict": true,
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   }
 }

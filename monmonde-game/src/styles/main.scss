@@ -31,8 +31,8 @@
     }
 
     .top-bar-button {
-      padding: 0.15em 0.3em; 
-      color: rgba($color-light, 0.9);
+      padding: 0.15em 0.3em;
+      color: rgba($color-dark, 0.9);
       font-size: 120%;
       border-radius: 2px;
       @include transition();
@@ -40,16 +40,16 @@
       &:not(.top-bar-button--disabled) {
         &:hover {
           cursor: pointer;
-          background: rgba($color-light, 0.1);
+          background: rgba($color-dark, 0.1);
         }
 
         &:active {
-          background: $color-dark;
+          background: $color-light;
         }
       }
 
       &--disabled {
-        color: rgba($color-light, 0.2);
+        color: rgba($color-dark, 0.2);
       }
     }
 
@@ -112,7 +112,7 @@
   margin: 0 2em 1em 2em;
   border: 2px solid rgba(20, 20, 20, 0.3);
   padding: 1em;
-  color: $color-dark;
+  color: $color-light;
   box-sizing: border-box;
 
   &:first-child {
@@ -177,28 +177,28 @@
 }
 
 .sidebar {
-  @include acrylic-solid($color-light);
+  @include acrylic-solid($color-dark);
   position: absolute;
   right: 0;
   z-index: 2137;
   width: 310px;
   height: 100%;
-  background-color: $color-light;
-  color: $color-dark;
+  background-color: $color-dark;
+  color: $color-light;
   box-shadow: inset 7px 0 30px -7px rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   &__group {
-    
+
   }
 }
 
 .sidebar-button {
   font-weight: 500 !important;
   display: flex;
-  padding: 0.8em 1.5em; 
+  padding: 0.8em 1.5em;
   font-weight: bold;
   cursor: pointer;
   align-items: center;
@@ -214,7 +214,7 @@
   }
 
   &__arrow {
-    color: rgba($color-dark, 0.4);
+    color: rgba($color-light, 0.4);
   }
 
   &:hover {
@@ -238,18 +238,18 @@
   font-size: 110%;
   padding: 0.4em 0.5em;
   cursor: pointer;
-  border: 2px solid transparent; 
+  border: 2px solid transparent;
   @include transition();
-  color: rgba($color-light, 0.9);
+  color: rgba($color-dark, 0.9);
   transition-property: color, border-color, background-color;
 
   &--disabled {
-    color: rgba($color-light, 0.2);
+    color: rgba($color-dark, 0.2);
   }
 
   &:not(.world-map__zoom-button--disabled) {
     &:hover {
-      border-color: rgb(255, 255, 255); 
+      border-color: rgb(255, 255, 255);
       background-color: rgba(255, 255, 255, 0.6);
     }
 
@@ -263,10 +263,10 @@
 .world-map__location-marker {
   width: 4px;
   height: 4px;
-  background: rgba($color-light, 0.7);
+  background: rgba($color-dark, 0.7);
   border-radius: 100px;
   border: 1px solid rgb(230, 230, 230);
-  box-shadow: 0 0 0 1px rgba($color-light, 0.7);
+  box-shadow: 0 0 0 1px rgba($color-dark, 0.7);
   @include transition();
   transition-property: opacity;
   opacity: 1;
@@ -281,12 +281,12 @@
 }
 
 .world-map__location-label {
-  background: rgba($color-light, 0.7);
+  background: rgba($color-dark, 0.7);
   font-weight: bold;
   position: absolute;
   font-size: 90%;
-  padding: 0.2em 0.5em; 
-  color: $color-dark;
+  padding: 0.2em 0.5em;
+  color: $color-light;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
   border: none !important;
   border-radius: 0 !important;
@@ -309,7 +309,7 @@
       display: block;
       font-weight: 500;
       font-size: 90%;
-      color: rgba($color-dark, 0.8);
+      color: rgba($color-light, 0.8);
     }
   }
 }
@@ -337,7 +337,7 @@
     height: calc(100% - 2em);
     background: url("../../assets/wallpaper.jpg");
     background-size: cover;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   }
 
   &__app-container {
@@ -377,7 +377,7 @@
     display: flex;
     align-items: center;
     font-size: 120%;
-    color: rgba($color-light, 0.9);
+    color: rgba($color-dark, 0.9);
 
     &:hover {
       @include transition();

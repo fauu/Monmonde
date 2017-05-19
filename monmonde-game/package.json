@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "main": "./src/main.js",
   "scripts": {
-    "start": "./node_modules/electron/dist/electron .",
+    "start": "./node_modules/electron/dist/electron . & yarn run watch:sass",
     "test": "./node_modules/jest/bin/jest.js",
-    "rebuild": "electron-rebuild -f -w sqlite3"
+    "rebuild:sqlite": "electron-rebuild -f -w sqlite3",
+    "build:sass": "./node_modules/node-sass/bin/node-sass -r --output-style compressed src/styles/main.scss src/styles/main.css",
+    "watch:sass": "yarn run build:sass && yarn run build:sass -- -w"
   },
   "dependencies": {
     "@types/electron": "^1.4.37",
@@ -32,6 +34,7 @@
     "mdi": "^1.9.33",
     "mobx": "^3.1.9",
     "mobx-react": "^4.1.8",
+    "node-sass": "^4.5.3",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-electron-web-view": "^2.0.1",
