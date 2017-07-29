@@ -136,9 +136,9 @@ Additional points:
 # Prototypes
 |Name|Themes|Tech|Source code available|
 |---|---|---|---|
-|MP-A|old map view, 2D exploration|Kotlin, libGDX|[yes](https://github.com/fauu/Monmonde-initial-prototypes/sprototype-MP-A)|
-|MP-B|2D exploration, battle|Kotlin, libGDX, Artemis-odb|[yes](https://github.com/fauu/Monmonde-initial-prototypes/prototype-MP-B)|
-|MP-C|world map, mongear, the league, calendar|C#, Unity Engine, Zenject, MBTiles|[yes](https://github.com/fauu/Monmonde-initial-prototypes/prototype-MP-C)|
+|MP-A|old map view, 2D exploration|Kotlin, libGDX|[yes](https://github.com/fauu/Monmonde-initial-prototypes/tree/master/prototype-MP-A)|
+|MP-B|2D exploration, battle|Kotlin, libGDX, Artemis-odb|[yes](https://github.com/fauu/Monmonde-initial-prototypes/tree/master/prototype-MP-B)|
+|MP-C|world map, mongear, the league, calendar|C#, Unity Engine, Zenject, MBTiles|[yes](https://github.com/fauu/Monmonde-initial-prototypes/tree/master/prototype-MP-C)|
 |MP-D|3D exploration|C#, Unity Engine|no|
 
 # Utilities
