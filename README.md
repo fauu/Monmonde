@@ -5,7 +5,7 @@
 
 __Note:__
 This is a design document that refers to initial prototypes of the game which can be found in [Monmonde-initial-prototypes repository](https://github.com/fauu/Monmonde-initial-prototypes).
-Details of the current iteration will appear here eventually.
+Details of the current iteration ("[MP-Eureka](#prototypes)") will appear here eventually.
 
 ---
 
