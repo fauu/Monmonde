@@ -140,7 +140,7 @@ Additional points:
 |MP-B|2D exploration, battle|Kotlin, libGDX, Artemis-odb|[yes](https://github.com/fauu/Monmonde-initial-prototypes/tree/master/prototype-MP-B)|
 |MP-C|world map, mongear, the league, calendar|C#, Unity Engine, Zenject, MBTiles|[yes](https://github.com/fauu/Monmonde-initial-prototypes/tree/master/prototype-MP-C)|
 |MP-D|3D exploration|C#, Unity Engine|no|
-|MP-Eureka|suitability of Electron/React/MobX/PixiJS stack|TypeScript, Electron, PixiJS, React, MobX|yes, this repository|
+|MP-Eureka|suitability of Electron/React/MobX/PixiJS stack|TypeScript, Electron, PixiJS, React, MobX|[yes](https://github.com/fauu/Monmonde)|
 
 # Utilities
 |Name|Description|Tech|Source code available|
