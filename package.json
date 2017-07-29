@@ -1,9 +1,6 @@
 {
-  "name": "monmonde-eureka",
+  "name": "monmonde",
   "version": "0.0.1",
-  "repository": "https://fauu@bitbucket.org/fauu/monmonde-eureka.git",
-  "author": "fauu <fau999@gmail.com>",
-  "license": "MIT",
   "scripts": {
     "compile:tslint": "tsc -p tslint-rules"
   },
