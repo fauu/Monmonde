@@ -1,0 +1,20 @@
+{"frames": {
+
+"mon-plate-bg.png":
+{
+	"frame": {"x":0,"y":0,"w":1,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":72},
+	"sourceSize": {"w":1,"h":72}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "ui.png",
+	"format": "RGBA8888",
+	"size": {"w":1,"h":72},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:36c4dc326a191db4a1b8b58514d28e16:bb8acb521d11ffccc7cc20aab396e513:5b04aa198265472a3c5f56958d78e97b$"
+}
+}

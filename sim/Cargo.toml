@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+  "monmonde_core",
+  "monmonde_cli",
+  "monmonde_chrono",
+]

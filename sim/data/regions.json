@@ -1,0 +1,29 @@
+{
+  "regions": [
+    {
+      "name": "Norte",
+      "code": "NOR",
+      "code2": "NR"
+    },
+    {
+      "name": "Piasenó",
+      "code": "PIA",
+      "code2": "PI"
+    },
+    {
+      "name": "Ivip",
+      "code": "IVI",
+      "code2": "IV"
+    },
+    {
+      "name": "Tarqmetia",
+      "code": "TRM",
+      "code2": "TM"
+    },
+    {
+      "name": "Soḥ Dosgvaafo",
+      "code": "SOH",
+      "code2": "SH"
+    }
+  ]
+}

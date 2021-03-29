@@ -1,0 +1,388 @@
+{
+  "data": [
+    {
+      "name": "Fire Fang",
+      "cost": 10,
+      "power": 65,
+      "accuracy": 0.95,
+      "castTime": 4000,
+      "requirements": [
+        {
+          "typeName": "Fang",
+          "value": 15
+        },
+        {
+          "typeName": "Flame",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "name": "Air Slash",
+      "cost": 20,
+      "power": 60,
+      "accuracy": 0.7,
+      "castTime": 1500,
+      "requirements": [
+        {
+          "typeName": "Wing",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "name": "Inferno",
+      "cost": 22,
+      "power": 230,
+      "accuracy": 0.9,
+      "castTime": 5000,
+      "requirements": [
+        {
+          "typeName": "Flame",
+          "value": 65
+        }
+      ]
+    },
+    {
+      "name": "Spike Attack",
+      "cost": 10,
+      "power": 40,
+      "accuracy": 1,
+      "castTime": 3000,
+      "requirements": [
+        {
+          "typeName": "Spike",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "name": "Poison Sting",
+      "cost": 20,
+      "power": 15,
+      "accuracy": 0.95,
+      "castTime": 1000,
+      "requirements": [
+        {
+          "typeName": "Toxin",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "name": "Megaspike",
+      "cost": 20,
+      "power": 120,
+      "accuracy": 0.9,
+      "castTime": 3000,
+      "requirements": [
+        {
+          "typeName": "Spike",
+          "value": 65
+        }
+      ]
+    },
+    {
+      "name": "Grass Whip",
+      "cost": 10,
+      "power": 40,
+      "accuracy": 1,
+      "castTime": 2500,
+      "requirements": [
+        {
+          "typeName": "Grass",
+          "value": 35
+        },
+        {
+          "typeName": "Cut",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "Solar Beam",
+      "cost": 15,
+      "power": 250,
+      "accuracy": 0.8,
+      "castTime": 6000,
+      "requirements": [
+        {
+          "typeName": "Grass",
+          "value": 70
+        }
+      ]
+    },
+    {
+      "name": "Water Gun",
+      "cost": 8,
+      "power": 20,
+      "accuracy": 1,
+      "castTime": 2500,
+      "requirements": [
+        {
+          "typeName": "Water",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "name": "Bite",
+      "cost": 10,
+      "power": 45,
+      "accuracy": 1,
+      "castTime": 4000,
+      "requirements": [
+        {
+          "typeName": "Fang",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "Aqua Tail",
+      "cost": 8,
+      "power": 50,
+      "accuracy": 0.9,
+      "castTime": 3500,
+      "requirements": [
+        {
+          "typeName": "Tail",
+          "value": 15
+        },
+        {
+          "typeName": "Water",
+          "value": 35
+        }
+      ]
+    },
+    {
+      "name": "Hydro Pump",
+      "cost": 25,
+      "power": 235,
+      "accuracy": 0.95,
+      "castTime": 4500,
+      "requirements": [
+        {
+          "typeName": "Water",
+          "value": 70
+        }
+      ]
+    },
+    {
+      "name": "Low Kick",
+      "cost": 8,
+      "power": 25,
+      "accuracy": 1,
+      "castTime": 3500,
+      "requirements": [
+        {
+          "typeName": "Biped",
+          "value": 38
+        }
+      ]
+    },
+    {
+      "name": "Blaze Kick",
+      "cost": 16,
+      "power": 85,
+      "accuracy": 1,
+      "castTime": 3500,
+      "requirements": [
+        {
+          "typeName": "Biped",
+          "value": 50
+        },
+        {
+          "typeName": "Flame",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "High Jump Kick",
+      "cost": 20,
+      "power": 95,
+      "accuracy": 0.9,
+      "castTime": 2500,
+      "requirements": [
+        {
+          "typeName": "Biped",
+          "value": 75
+        }
+      ]
+    },
+    {
+      "name": "Psybeam",
+      "cost": 15,
+      "power": 15,
+      "accuracy": 1,
+      "castTime": 1000,
+      "requirements": [
+        {
+          "typeName": "Mind",
+          "value": 29
+        }
+      ]
+    },
+    {
+      "name": "Psychic",
+      "cost": 25,
+      "power": 60,
+      "accuracy": 1,
+      "castTime": 1400,
+      "requirements": [
+        {
+          "typeName": "Mind",
+          "value": 55
+        }
+      ]
+    },
+    {
+      "name": "Seismic Toss",
+      "cost": 16,
+      "power": 115,
+      "accuracy": 1,
+      "castTime": 4000,
+      "requirements": [
+        {
+          "typeName": "Arm",
+          "value": 70
+        }
+      ]
+    },
+    {
+      "name": "Scratch",
+      "cost": 10,
+      "power": 30,
+      "accuracy": 1,
+      "castTime": 3500,
+      "requirements": [
+        {
+          "typeName": "Claw",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "Earthquake",
+      "cost": 25,
+      "power": 210,
+      "accuracy": 1,
+      "castTime": 5000,
+      "requirements": [
+        {
+          "typeName": "Earth",
+          "value": 70
+        }
+      ]
+    },
+    {
+      "name": "Shadow Punch",
+      "cost": 12,
+      "power": 50,
+      "accuracy": 0.9,
+      "castTime": 3000,
+      "requirements": [
+        {
+          "typeName": "Arm",
+          "value": 15
+        },
+        {
+          "typeName": "Shadow",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "name": "Night Shade",
+      "cost": 16,
+      "power": 55,
+      "accuracy": 1,
+      "castTime": 2200,
+      "requirements": [
+        {
+          "typeName": "Shadow",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "name": "Bubble Beam",
+      "cost": 15,
+      "power": 80,
+      "accuracy": 0.8,
+      "castTime": 3000,
+      "requirements": [
+        {
+          "typeName": "Water",
+          "value": 48
+        }
+      ]
+    },
+    {
+      "name": "Guillotine",
+      "cost": 25,
+      "power": 330,
+      "accuracy": 0.5,
+      "castTime": 3000,
+      "requirements": [
+        {
+          "typeName": "Pincer",
+          "value": 80
+        }
+      ]
+    },
+    {
+      "name": "Rock Slide",
+      "cost": 20,
+      "power": 65,
+      "accuracy": 0.9,
+      "castTime": 2000,
+      "requirements": [
+        {
+          "typeName": "Earth",
+          "value": 48
+        }
+      ]
+    },
+    {
+      "name": "Ice Beam",
+      "cost": 18,
+      "power": 60,
+      "accuracy": 0.95,
+      "castTime": 2000,
+      "requirements": [
+        {
+          "typeName": "Ice",
+          "value": 55
+        }
+      ]
+    },
+    {
+      "name": "Slash",
+      "cost": 15,
+      "power": 15,
+      "accuracy": 1,
+      "castTime": 1000,
+      "requirements": [
+        {
+          "typeName": "Cut",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "name": "X-Scissor",
+      "cost": 20,
+      "power": 50,
+      "accuracy": 1,
+      "castTime": 1500,
+      "requirements": [
+        {
+          "typeName": "Cut",
+          "value": 55
+        }
+      ]
+    }
+  ]
+}

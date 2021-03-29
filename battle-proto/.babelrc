@@ -1,0 +1,26 @@
+{
+  "presets": [
+    ["@babel/preset-env", { "useBuiltIns": "usage", corejs: 3 }],
+    "@babel/typescript",
+    ["@babel/preset-react", { "runtime": "automatic", "importSource": "@emotion/react" }], // "automatic" will be default in Babel 8
+  ],
+  "plugins": [
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+    "@emotion/babel-plugin",
+    // Check if this isn't needed in production build, then remove along with the plugin package
+    // [
+    //   "module-resolver",
+    //   {
+    //     "root": [
+    //       "./"
+    //     ],
+    //     "alias": {
+    //       "~": "./src"
+    //     }
+    //   }
+    // ],
+    // XXX: Plugin needs disabling in production - either use js format of babelrc or set in webpack config
+    "react-refresh/babel"
+  ]
+}

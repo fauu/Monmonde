@@ -1,0 +1,464 @@
+{
+  "data": [
+    {
+      "name": "Venusaur",
+      "stats": [
+        {
+          "typeName": "Quadruped",
+          "value": 20
+        },
+        {
+          "typeName": "Fang",
+          "value": 20
+        },
+        {
+          "typeName": "Cut",
+          "value": 30
+        },
+        {
+          "typeName": "Grass",
+          "value": 50
+        },
+        {
+          "typeName": "Toxin",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "name": "Charizard",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 30
+        },
+        {
+          "typeName": "Tail",
+          "value": 40
+        },
+        {
+          "typeName": "Arm",
+          "value": 20
+        },
+        {
+          "typeName": "Claw",
+          "value": 20
+        },
+        {
+          "typeName": "Fang",
+          "value": 20
+        },
+        {
+          "typeName": "Wing",
+          "value": 40
+        },
+        {
+          "typeName": "Flame",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "name": "Blastoise",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 20
+        },
+        {
+          "typeName": "Tail",
+          "value": 10
+        },
+        {
+          "typeName": "Arm",
+          "value": 30
+        },
+        {
+          "typeName": "Claw",
+          "value": 20
+        },
+        {
+          "typeName": "Shell",
+          "value": 40
+        },
+        {
+          "typeName": "Water",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "name": "Hitmonlee",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 50
+        },
+        {
+          "typeName": "Arm",
+          "value": 30
+        },
+        {
+          "typeName": "Cut",
+          "value": 10
+        },
+        {
+          "typeName": "Shadow",
+          "value": 10
+        },
+        {
+          "typeName": "Flame",
+          "value": 10
+        },
+        {
+          "typeName": "Ice",
+          "value": 10
+        },
+        {
+          "typeName": "Lightning",
+          "value": 10
+        },
+        {
+          "typeName": "Mind",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "name": "Tauros",
+      "stats": [
+        {
+          "typeName": "Quadruped",
+          "value": 50
+        },
+        {
+          "typeName": "Tail",
+          "value": 10
+        },
+        {
+          "typeName": "Spike",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "name": "Alakazam",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 20
+        },
+        {
+          "typeName": "Arm",
+          "value": 20
+        },
+        {
+          "typeName": "Mind",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "name": "Machamp",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 40
+        },
+        {
+          "typeName": "Arm",
+          "value": 50
+        },
+        {
+          "typeName": "Shell",
+          "value": 10
+        },
+        {
+          "typeName": "Cut",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "Sandslash",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 20
+        },
+        {
+          "typeName": "Tail",
+          "value": 20
+        },
+        {
+          "typeName": "Arm",
+          "value": 20
+        },
+        {
+          "typeName": "Claw",
+          "value": 50
+        },
+        {
+          "typeName": "Earth",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "name": "Gengar",
+      "stats": [
+        {
+          "typeName": "Arm",
+          "value": 20
+        },
+        {
+          "typeName": "Shadow",
+          "value": 50
+        },
+        {
+          "typeName": "Toxin",
+          "value": 30
+        },
+        {
+          "typeName": "Mind",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "name": "Kingler",
+      "stats": [
+        {
+          "typeName": "Pincer",
+          "value": 50
+        },
+        {
+          "typeName": "Shell",
+          "value": 30
+        },
+        {
+          "typeName": "Shadow",
+          "value": 20
+        },
+        {
+          "typeName": "Water",
+          "value": 40
+        },
+        {
+          "typeName": "Earth",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "name": "Fearow",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 20
+        },
+        {
+          "typeName": "Tail",
+          "value": 10
+        },
+        {
+          "typeName": "Beak",
+          "value": 40
+        },
+        {
+          "typeName": "Wing",
+          "value": 40
+        },
+        {
+          "typeName": "Shadow",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "name": "Golbat",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 10
+        },
+        {
+          "typeName": "Fang",
+          "value": 40
+        },
+        {
+          "typeName": "Wing",
+          "value": 30
+        },
+        {
+          "typeName": "Shadow",
+          "value": 20
+        },
+        {
+          "typeName": "Toxin",
+          "value": 30
+        },
+        {
+          "typeName": "Sound",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "name": "Onyx",
+      "stats": [
+        {
+          "typeName": "Tail",
+          "value": 40
+        },
+        {
+          "typeName": "Spike",
+          "value": 30
+        },
+        {
+          "typeName": "Serpentine",
+          "value": 40
+        },
+        {
+          "typeName": "Shell",
+          "value": 40
+        },
+        {
+          "typeName": "Earth",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "name": "Cloyster",
+      "stats": [
+        {
+          "typeName": "Spike",
+          "value": 40
+        },
+        {
+          "typeName": "Shell",
+          "value": 50
+        },
+        {
+          "typeName": "Water",
+          "value": 40
+        },
+        {
+          "typeName": "Ice",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "name": "Scyther",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 30
+        },
+        {
+          "typeName": "Wing",
+          "value": 10
+        },
+        {
+          "typeName": "Cut",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "name": "Magneton",
+      "stats": [
+        {
+          "typeName": "Lightning",
+          "value": 50
+        },
+        {
+          "typeName": "Mind",
+          "value": 10
+        },
+        {
+          "typeName": "Sound",
+          "value": 30
+        },
+        {
+          "typeName": "Cyberspace",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "name": "Weezing",
+      "stats": [
+        {
+          "typeName": "Fang",
+          "value": 10
+        },
+        {
+          "typeName": "Shadow",
+          "value": 20
+        },
+        {
+          "typeName": "Toxin",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "name": "Clefable",
+      "stats": [
+        {
+          "typeName": "Biped",
+          "value": 20
+        },
+        {
+          "typeName": "Tail",
+          "value": 20
+        },
+        {
+          "typeName": "Arm",
+          "value": 20
+        },
+        {
+          "typeName": "Enchantment",
+          "value": 50
+        },
+        {
+          "typeName": "Sound",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "name": "Dugtrio",
+      "stats": [
+        {
+          "typeName": "Earth",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "name": "Porygon",
+      "stats": [
+        {
+          "typeName": "Shell",
+          "value": 20
+        },
+        {
+          "typeName": "Lightning",
+          "value": 30
+        },
+        {
+          "typeName": "Mind",
+          "value": 20
+        },
+        {
+          "typeName": "Cyberspace",
+          "value": 50
+        }
+      ]
+    }
+  ]
+}

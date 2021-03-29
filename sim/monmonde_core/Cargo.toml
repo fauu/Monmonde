@@ -1,0 +1,14 @@
+[package]
+name = "monmonde_core"
+version = "0.1.0"
+authors = ["Piotr Grabowski <fau999@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+"monmonde_chrono" = { path = "../monmonde_chrono" }
+"miniserde" = "0.1"
+"rand" = { version = "0.8.3", features = ["alloc"] }
+"rand_distr" = "0.4.0"
+"rusqlite" = "0.25.0"
+"slotmap" = "1.0"
+"glicko2" = "0.3.1"

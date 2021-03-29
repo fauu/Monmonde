@@ -1,0 +1,9 @@
+[package]
+name = "monmonde_chrono"
+version = "0.1.0"
+authors = ["Piotr Grabowski <fau999@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+regex = "1.4.5"
+once_cell = "0.1.2"

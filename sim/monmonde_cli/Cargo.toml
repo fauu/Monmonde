@@ -1,0 +1,11 @@
+[package]
+name = "monmonde_cli"
+version = "0.1.0"
+authors = ["Piotr Grabowski <fau999@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+monmonde_core = { path = "../monmonde_core" }
+monmonde_chrono = { path = "../monmonde_chrono" }
+rustyline = "8.0.0"
+colored = "2.0.0"
