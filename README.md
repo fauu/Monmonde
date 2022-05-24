@@ -1,64 +1,47 @@
 # Codename: Monmonde
 
-Notes on an idea for a open world exploration / monster collection / monster battling game.
+Notes on an idea for an open world exploration / monster collection / monster battling game.
 
-*[This document was initially created mid-2017. It has been substantively revised in March 2021 and revised again in April–May 2022.]*
+*[This document was initially created mid-2017. It has been substantively revised in March 2021 and again in April–May 2022.]*
 
 ## Introduction
 
-The idea: A single-player game involving exploration<sup>G3</sup> of a big world<sup>\* G2</sup>, catching creatures<sup>G1 G2 G3</sup>, training them<sup>G1</sup> and climbing the ladder of a deeply-simulated<sup>G4</sup> system of battling<sup>G1 G2</sup> competitions.
+The idea: A single-player game involving exploration<sup>G3</sup> of a large world<sup>\* G2</sup>, catching creatures<sup>G1 G2 G3</sup>, training them<sup>G1</sup>, and climbing the ladder of a deeply-simulated<sup>G4</sup> system of battling<sup>G1 G2</sup> competitions.
 
 \*_The initial 2017 concept involved an alternative timeline of the real world. In the updated, simplified concept it’s a fictional world._
 
 Inspirations:
 
-- [G1] **Pokémon Reborn/Blue/Silver/Sapphire…** ([screenshots](https://3.bp.blogspot.com/-PB6Eh2kJoYM/WBQjXjwhJyI/AAAAAAAACeo/iHk9PZogR04Udpl0tRp_kBwygEI4pVyYgCLcB/s1600/reborn1.jpg); [video](https://www.youtube.com/watch?v=5hwjki1EsK0)),
-- [G2] **Pokémon Go**,
-- [G3] **UnReal World** ([screenshot](http://cdn.akamai.steamstatic.com/steam/apps/351700/ss_e2ef9b4c7f6a39feaed3413655eb654f2f9b590e.1920x1080.jpg); [video](https://www.youtube.com/watch?v=nwJIYNoJ-44&t=1m00s)),
-- [G4] **Football Manager** ([screenshot](https://www.pcinvasion.com/wp-content/uploads/2016/11/football-manager-2017-5.png); [video](https://www.youtube.com/watch?v=hIPAPjCADKI&t=5m00s)).
+- [G1] **Pokémon Reborn/Blue/Silver/Sapphire…** ([screenshots](https://3.bp.blogspot.com/-PB6Eh2kJoYM/WBQjXjwhJyI/AAAAAAAACeo/iHk9PZogR04Udpl0tRp_kBwygEI4pVyYgCLcB/s1600/reborn1.jpg); [video](https://www.youtube.com/watch?v=5hwjki1EsK0))
+- [G2] **Pokémon Go**
+- [G3] **UnReal World** ([screenshot](http://cdn.akamai.steamstatic.com/steam/apps/351700/ss_e2ef9b4c7f6a39feaed3413655eb654f2f9b590e.1920x1080.jpg); [video](https://www.youtube.com/watch?v=nwJIYNoJ-44&t=1m00s))
+- [G4] **Football Manager** ([screenshot](https://www.pcinvasion.com/wp-content/uploads/2016/11/football-manager-2017-5.png); [video](https://www.youtube.com/watch?v=hIPAPjCADKI&t=5m00s))
 
 Planned release date for the game: _December 2031_ (initial optimistic estimation; updated realistic estimation: somewhere between the time of Korean reunification and the world reaching climate neutrality).
 
 Please feel very welcome to creatively appropriate any of the ideas below for your own projects that will never be finished.
 
-### What concrete has been made so far
+## What concrete has been made so far
 
 - Seven [“prototypes”](#prototypes).
-- The basis for the game’s core (see [`sim/`](/sim)).
+- The basis for the game’s core (see [`sim/`](tree/master/sim)).
 - [Minor tool(s)](#utilities).
 
 ## What’s in this repository
 
-[`battle-proto/`](/batle-proto/) contains the most recent prototype of the battle module (see [Battle system](#battle-system) and [Prototypes](/#prototypes)). [`sim/`](/sim/) contains the basis for the simulation module, the game’s core.
+[`battle-proto/`](tree/master/batle-proto/) contains the most recent prototype of the battle module (see [Battle system](#battle-system) and [Prototypes](#prototypes)). [`sim/`](tree/master/sim/) contains the basis for the simulation module, the game’s core.
 
 
 ## Table of contents
 
-{REVISEME update the TOC at the end}
-
 - [Introduction](#introduction)
-- [What’s in this repository](#what’s-in-this-repository)
+- [What’s in this repository](#whats-in-this-repository)
 - [Table of contents](#table-of-contents)
 - [Game design overview](#game-design-overview)
-  - [The League](#the-league)
-  - [Inter-location travel](#inter-location-travel)
-  - [Locations](#locations)
-  - [Mons](#mons)
-  - [Battle system](#battle-system)
 - [Prototypes](#prototypes)
 - [Utilities](#utilities)
 - [Just like make game](#just-like-make-game)
-  - [1. Decide on the tech](#1-decide-on-the-tech)
-  - [2. Design and implement the Minimum Viable Product](#2-design-and-implement-the-minimum-viable-product)
-- [Various design notes](#various-design-notes)
-  - [Classes](#classes)
-  - [Trainers](#trainers)
-  - [Exploration zones](#exploration-zones)
-  - [Gyms](#gyms)
-  - [Trainer class](#trainer-class)
-  - [Competitions](#competitions)
-  - [Stat system](#stat-system)
-  - [Lore](#lore)
+- [Various design notes/ideas](#various-design-notesideas)
 
 ## Game design overview
 
@@ -121,7 +104,7 @@ Additional points:
 
 - These expeditions are meant to be longer adventures lasting for (in-game) days. The deeper you go, the tougher it gets, but also the more rare Mons and items you can encounter.
 
-- Mechanics similar to animal hunting from UnReal World<sup><a href="#G3">G3</a></sup> might be a good fit here.
+- Mechanics similar to animal hunting from UnReal World<sup>G3</sup> might be a good fit here.
 
 - You will not find a huge and menacing Tentacruel in a local lake, but in an ocean — you just might. Hence every exploration zone has a class assigned by The League. Only trainers of that class and above are permitted to enter the zone.
 
