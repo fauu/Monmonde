@@ -24,12 +24,12 @@ Please feel very welcome to creatively appropriate any of the ideas below for yo
 ## What concrete has been made so far
 
 - Seven [“prototypes”](#prototypes).
-- The basis for the game’s core (see [`sim/`](Monmonde/tree/master/sim)).
+- The basis for the game’s core (see [`sim/`](sim)).
 - [Minor tool(s)](#utilities).
 
 ## What’s in this repository
 
-[`battle-proto/`](Monmonde/tree/master/batle-proto) contains the most recent prototype of the battle module (see [Battle system](#battle-system) and [Prototypes](#prototypes)). [`sim/`](Monmonde/tree/master/sim) contains the basis for the simulation module, the game’s core.
+[`battle-proto/`](batle-proto) contains the most recent prototype of the battle module (see [Battle system](#battle-system) and [Prototypes](#prototypes)). [`sim/`](sim) contains the basis for the simulation module, the game’s core.
 
 
 ## Table of contents
