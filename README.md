@@ -42,6 +42,7 @@ Please feel very welcome to creatively appropriate any of the ideas below for yo
 - [Utilities](#utilities)
 - [Just like MAKE game](#just-like-make-game)
 - [Various design notes/ideas](#various-design-notesideas)
+- [License](#license)
 
 ## Game design overview
 
@@ -477,3 +478,7 @@ Note: Some of those still reflect old assumptions (e.g. using the real world as 
 #### Lore
 
 - Inspiration: <https://www.reddit.com/r/AskScienceFiction/comments/d36grp/pokemon_what_is_the_common_factor_with_all/f00x8fa/>
+
+## License
+
+See [COPYING.md](COPYING.md).
