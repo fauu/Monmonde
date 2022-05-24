@@ -153,8 +153,6 @@ Some remarks:
 
 I’d like to try something slightly different here. Current idea: real-time battles; your Mons have AI too — you can train them, prepare a battle plan, issue commands during the battle, but they aren’t going to execute what you want perfectly.
 
-![Battle prototype (MMP-G)](media/battle-proto.mp4)
-
 - Reference: [Pokémon Reborn: Field Effects](http://pokemon-reborn.wikia.com/wiki/Field_Effects).
 
 ## Prototypes

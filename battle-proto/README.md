@@ -1,7 +1,5 @@
 # Monmonde battle module prototype
 
-![Battle prototype (MMP-G)](../media/battle-proto.mp4)
-
 ## Running
 
 1. `yarn install`
