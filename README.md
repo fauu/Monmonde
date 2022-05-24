@@ -29,7 +29,7 @@ Please feel very welcome to creatively appropriate any of the ideas below for yo
 
 ## What’s in this repository
 
-[`battle-proto/`](batle-proto) contains the most recent prototype of the battle module (see [Battle system](#battle-system) and [Prototypes](#prototypes)). [`sim/`](sim) contains the basis for the simulation module, the game’s core.
+[`battle-proto/`](battle-proto) contains the most recent prototype of the battle module (see [Battle system](#battle-system) and [Prototypes](#prototypes)). [`sim/`](sim) contains the basis for the simulation module, the game’s core.
 
 
 ## Table of contents
@@ -40,7 +40,7 @@ Please feel very welcome to creatively appropriate any of the ideas below for yo
 - [Game design overview](#game-design-overview)
 - [Prototypes](#prototypes)
 - [Utilities](#utilities)
-- [Just like make game](#just-like-make-game)
+- [Just like MAKE game](#just-like-make-game)
 - [Various design notes/ideas](#various-design-notesideas)
 
 ## Game design overview
@@ -164,7 +164,7 @@ _Source code_: https://github.com/fauu/Monmonde-initial-prototypes/tree/master/M
   <dd>Create words in a fictional language by transforming words from a real language. (Tech: Rust.)</dd>
 </dl>
 
-## Just like make game
+## Just like MAKE game
 
 ### 1. Decide on the tech
 
