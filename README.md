@@ -24,12 +24,12 @@ Please feel very welcome to creatively appropriate any of the ideas below for yo
 ## What concrete has been made so far
 
 - Seven [“prototypes”](#prototypes).
-- The basis for the game’s core (see [`sim/`](tree/master/sim)).
+- The basis for the game’s core (see [`sim/`](Monmonde/tree/master/sim)).
 - [Minor tool(s)](#utilities).
 
 ## What’s in this repository
 
-[`battle-proto/`](tree/master/batle-proto/) contains the most recent prototype of the battle module (see [Battle system](#battle-system) and [Prototypes](#prototypes)). [`sim/`](tree/master/sim/) contains the basis for the simulation module, the game’s core.
+[`battle-proto/`](Monmonde/tree/master/batle-proto) contains the most recent prototype of the battle module (see [Battle system](#battle-system) and [Prototypes](#prototypes)). [`sim/`](Monmonde/tree/master/sim) contains the basis for the simulation module, the game’s core.
 
 
 ## Table of contents
@@ -64,7 +64,7 @@ At the heart of The League is the **World Trainer Ranking**. All registered trai
   <em>Prototype MP-C: Trainer profile (left), World Ranking (right)</em>
 </p>
 
-See [notes on gyms, trainer classes, tournaments and more](#various-design-notes).
+See [notes on gyms, trainer classes, tournaments and more](#various-design-notesideas).
 
 ### Inter-location travel
 
