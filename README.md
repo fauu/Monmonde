@@ -247,32 +247,36 @@ _Source code_: https://github.com/fauu/Monmonde-initial-prototypes/tree/master/M
 
 ##### Requirements
 
-- Future-proof.
-- Enough throughput to handle a non-trivial simulation workload.
+- Future-proof
+- Enough throughput to handle a non-trivial simulation workload
 - Fast iteration:
-  - Short compilation times.
-  - Good tooling.
-  - Broad ecosystem.
+  - Short compilation times
+  - Good tooling
+  - Broad ecosystem
 
 ##### Candidates
 
 - Nim (native target)
   - Wait for: incremental compilation and improved tooling.
+  - Cons: the ecosystem.
 - Rust (native target)
   - ~~Wait for: improved compilation times.~~
     - This appears to have already been solved to an extent by the Cranelift backend and the quality of rust-analyzer.
+- D
+  - Cons: the ecosystem.
 - Java
     - Can’t see real cons and it’s only set to get better throughout the decade.
     - Should suffice performance-wise, especially considering Moores’ law and Project Valhalla (the main concern being memory usage for large numbers of simulated trainers).
 - Kotlin
-  - Need to see if the language server is good enough and if the compilation time penalty over Java isn't too large for it to be worth it, given Java’s progress in terms of convenience featuers.
-- C#
-  - From what I glanced, it seems they’re overloading the language with too many features for its own good.
-  - I’ve heard very mixed things about the Linux tooling.
+  - Need to see if the language server is good enough and if the compilation time penalty over Java isn’t too large for it to be worth it, given Java’s progress in terms of convenience featuers.
 - JS/WASM target (JS, TS, Nim, Kotlin, Rust, …)
   - Can this handle the simulation workload properly? The problem is we don't know how demanding the simulation will get. But if we're assuming that the JVM or the CLR could handle it, then surely V8 could too, especially as time passes?
   - Would WASM actually be a significant enough of an improvement in terms of integration compared with WebSocket communication with an out-of-browser backend?
   - Currently, WASM supposedly doesn’t even have a performance advantage over JS (not that JS is especially slow).
+- C#
+  - From what I glanced, it seems they’re overloading the language with too many features for its own good.
+  - I’ve heard very mixed things about the Linux tooling.
+  - [“Despite best efforts .NET is still not an open platform”](https://isdotnetopen.com/).
 - Zig, Jai
   - Would likely require the most effort with no relative payoff that I can think of.
 
