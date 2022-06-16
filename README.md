@@ -261,7 +261,7 @@ _Source code_: https://github.com/fauu/Monmonde-initial-prototypes/tree/master/M
   - Cons: the ecosystem.
 - Rust (native target)
   - ~~Wait for: improved compilation times.~~
-    - This appears to have already been solved to an extent by the Cranelift backend and the quality of rust-analyzer.
+    - This appears to have already been solved to an extent by the Cranelift backend and the mold linker.
 - D
   - Cons: the ecosystem.
 - Java
